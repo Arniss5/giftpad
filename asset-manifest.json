@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/giftpad/static/css/main.073c9b0a.css",
+    "main.js": "/giftpad/static/js/main.306938de.js",
+    "static/js/787.03797368.chunk.js": "/giftpad/static/js/787.03797368.chunk.js",
+    "static/media/logo.svg": "/giftpad/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "index.html": "/giftpad/index.html",
+    "main.073c9b0a.css.map": "/giftpad/static/css/main.073c9b0a.css.map",
+    "main.306938de.js.map": "/giftpad/static/js/main.306938de.js.map",
+    "787.03797368.chunk.js.map": "/giftpad/static/js/787.03797368.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.073c9b0a.css",
+    "static/js/main.306938de.js"
+  ]
+}
