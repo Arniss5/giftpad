@@ -1,14 +1,14 @@
 import React from "react";
+import "./WelcomePage.css"
 
 function WelcomePage() {
     return (
         <div class="panels-container">
-    
             <img 
                 src={require("../images/giftshop.png")} 
                 alt="gift shop cartoon" 
-                className="panel panel-img" />
-
+                className="panel panel-img" 
+            />
             <div class="panel panel-main">
                 <h1>Thoughful <span>gifts</span> at your finger tips</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt ullam dolores qui repudiandae veritatis iste tempore, velit esse vero nobis.</p>
