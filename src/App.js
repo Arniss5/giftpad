@@ -1,10 +1,15 @@
-
+import './normalize.css'
 import './App.css';
+import Header from './components/Header';
+import WelcomePage from './pages/WelcomePage';
 
 function App() {
   return (
     <div className="App">
-      <h1>Hello</h1>
+      <div className='container'>
+        <Header />
+        <WelcomePage />
+      </div>
     </div>
   );
 }
