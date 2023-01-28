@@ -1,18 +1,18 @@
 import React from "react";
+import "./GiftCardMini.css"
 
 function GiftCardMini() {
     return(
         <div className="card-mini">
             <div className="card-mini-contents">
-                <div className="card-mini-title">
-                    <img src={require("../images/adam.jpg")} alt="avatar" className="card-mini-logo"/>
-                    <h3>Adam</h3>
-                </div>
+                <h3>Adam</h3>
                 <div className="card-mini-main">
-                    Date of Birth: 01/04/93<br/>
-                    Hobbies: PC, Warhammer, Clothes
+                    <div>
+                        <span className="bold">Date of Birth: </span>01/04/93
+                    </div>
+                    <div className="card-mini-hobbies"><span className="bold">Hobbies: </span>PC, Warhammer, Clothes</div>
                 </div>
-                <button>Open</button>
+                {/* <button>Open</button> */}
             </div>
         </div>
     )
