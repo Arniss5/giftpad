@@ -1,7 +1,7 @@
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 2vw;
+    gap: 3vw;
     justify-content: center;
     padding: 2em 5vw;
 }
