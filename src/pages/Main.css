@@ -3,9 +3,8 @@
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 4vw;
-    margin: auto;
-    justify-content: left;
+    gap: 3vw;
+    justify-content: space-evenly;
     padding: 2em 5vw;
 }
 

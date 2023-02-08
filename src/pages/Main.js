@@ -10,6 +10,8 @@ function Main() {
                 <GiftCardMini />
                 <GiftCardMini />
                 <GiftCardMini />
+                <GiftCardMini />
+                <GiftCardMini />
             </div>
         </div>
     )
