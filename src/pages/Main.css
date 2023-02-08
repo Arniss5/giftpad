@@ -1,8 +1,11 @@
+
+
 .cards-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 3vw;
-    justify-content: center;
+    gap: 4vw;
+    margin: auto;
+    justify-content: left;
     padding: 2em 5vw;
 }
 
