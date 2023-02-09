@@ -5,6 +5,7 @@ import './Main.css'
 function Main() {
     return(
         <div className="main-container">
+            
             <div className="cards-container">
                 <GiftCardMini />
                 <GiftCardMini />
@@ -12,7 +13,14 @@ function Main() {
                 <GiftCardMini />
                 <GiftCardMini />
                 <GiftCardMini />
-                {/* <div className="add-card">ADD CARD</div> */}
+                <GiftCardMini />
+                <GiftCardMini />
+    
+            </div>
+            <div className="add-card-container">
+                <form>
+                    <h3>Add Card</h3>
+                </form>
             </div>
         </div>
     )

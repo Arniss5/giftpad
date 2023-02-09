@@ -1,15 +1,31 @@
+.main-container {
+    display: flex;
+    flex-direction: row;
+}
+
 
 .cards-container {
     display: flex;
     flex-wrap: wrap;
     gap: 3vw;
     justify-content: space-evenly;
-    padding: 2em 5vw;
+    padding: 2em 4vw;
     
 }
 
-.add-card {
- 
+.add-card-container {
+    width: 500px;
+    position: sticky;
+    background-color: #FF9D90;
+    border-left: 12px dotted #fff;
+    box-shadow: -7px 1px 1px -1px #FF9D90;
+    font-size: 2rem;
+    color: #fff;
+    font-weight: 700;
+    padding: 1em;
+    text-shadow: 1px 1px 3px #385A64;
+    margin-top: -3px;
+    overflow: hidden;
 }
 
 

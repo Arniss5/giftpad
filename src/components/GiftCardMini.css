@@ -9,7 +9,7 @@
     background-size: 30px;
     background-repeat: no-repeat;
     background-color: rgb(205, 228, 228);
-    border-radius: 10px 15px;
+    border-radius: 2px 2px  45px 2px ;
     text-align: center;
     transition: all .2s ease-in-out
 }
