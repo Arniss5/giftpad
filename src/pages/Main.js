@@ -19,7 +19,56 @@ function Main() {
             </div>
             <div className="add-card-container">
                 <form>
-                    <h3>Add Card</h3>
+                    <h3>New Card</h3>
+                    <input
+                        type="text"
+                        placeholder="Name"
+                    />
+                    <i class="fa-solid fa-user"></i>
+                    
+                    <input
+                        type="date"
+                        placeholder="birthday"
+                    />
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <input
+                        type="text"
+                        placeholder="Hobby 1"
+                    />
+                    <i class="fa-solid fa-gamepad"></i>
+                    <input
+                        type="text"
+                        placeholder="Hobby 2"
+                    />
+                    <i class="fa-solid fa-guitar"></i>
+                    <input
+                        type="text"
+                        placeholder="Hobby 1"
+                    />
+                    <i class="fa-solid fa-palette"></i>
+                    <fieldset>
+                        <input
+                            type="radio"
+                            id="radio-green"
+                            name="green"
+                        />
+                        <label htmlFor="radio-blue" className="radio-label"></label>
+                        <input
+                            type="radio"
+                            id="radio-blue"
+                            name="colour"
+                            value="blue"
+                        />
+                        <label htmlFor="radio-yellow" className="radio-label"></label>
+                        <input
+                            type="radio"
+                            id="radio-yellow"
+                            name="yellow"
+                        />
+                        <label htmlFor="radio-green" className="radio-label"></label>
+                    </fieldset>
+                    
+                    <button className="add-card-btn">Add</button>
                 </form>
             </div>
         </div>

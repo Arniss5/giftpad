@@ -19,7 +19,7 @@
     background-color: #FF9D90;
     border-left: 12px dotted #fff;
     box-shadow: -7px 1px 1px -1px #FF9D90;
-    font-size: 2rem;
+    font-size: 1.3rem;
     color: #fff;
     font-weight: 700;
     padding: 1em;
@@ -28,6 +28,58 @@
     overflow: hidden;
 }
 
+.add-card-container h3 {
+    font-size: 1.8rem;
+}
+
+.add-card-container input {
+    border: none;
+    border-bottom: 3px dashed #385A64;
+    background-color: rgb(255, 255, 255, 0.2);
+    margin-bottom: .7em;
+    width: 70%;
+    padding: .2em;
+}
+
+/* .add-card-container input[type=radio] {
+    width: 20%;
+    visibility: hidden;
+}
+
+.add-card-container input[type=radio]:checked {
+    border: 2px solid black;
+} */
+input[type="radio"] {
+    display: none;
+  }
+  
+  .radio-label {
+    display: inline-block;
+    margin-right: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-color: green;
+  }
+  
+
+
+  input[type="radio"]:checked + .radio-label {
+    border: #385A64 2px solid;
+  }
+
+.add-card-container i {
+    margin-left: .3em;
+    font-size: 1.5rem;
+}
+
+/* .radio-green-label {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: green;
+} */
 
 .bold {
     font-weight: bold;
