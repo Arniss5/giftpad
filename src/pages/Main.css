@@ -32,6 +32,7 @@
     font-size: 1.8rem;
 }
 
+
 .add-card-container input {
     border: none;
     border-bottom: 3px dashed #385A64;
@@ -74,12 +75,12 @@ input[type="radio"] {
     font-size: 1.5rem;
 }
 
-/* .radio-green-label {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    background-color: green;
-} */
+.add-card-btn {
+    width: calc(100% - 4em);
+    padding: .5em 0;
+    margin: 1.5em 2em 1em;
+
+}
 
 .bold {
     font-weight: bold;

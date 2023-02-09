@@ -58,13 +58,6 @@
     padding-top: 90%; 
 }
 
-.card-mini-contents {
-    position: absolute;
-    top: 5%;
-    left: 5%;
-    bottom: 5%;
-    right: 5%;
-}
 
 .card-mini-title {
     display: flex;
