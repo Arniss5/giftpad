@@ -12,6 +12,7 @@ function Main() {
                 <GiftCardMini />
                 <GiftCardMini />
                 <GiftCardMini />
+                {/* <div className="add-card">ADD CARD</div> */}
             </div>
         </div>
     )

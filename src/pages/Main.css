@@ -1,13 +1,16 @@
 
-
 .cards-container {
     display: flex;
     flex-wrap: wrap;
     gap: 3vw;
     justify-content: space-evenly;
     padding: 2em 5vw;
+    
 }
 
+.add-card {
+ 
+}
 
 
 .bold {
