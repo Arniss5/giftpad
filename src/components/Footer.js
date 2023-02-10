@@ -5,7 +5,7 @@ import "./Footer.css"
 function Footer() {
     return (
         <footer>
-            <div className="author">Arniss5</div>
+            <div className="author">Developed by <strong>Arniss5</strong> © 2023</div>
             <div className="socials-container"></div>
         </footer>
     )

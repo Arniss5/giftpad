@@ -84,12 +84,15 @@ import './Main.css'
 
 function Main() {
     return(
-        <div class="parent">
-            <div class="main-btn gift-ideas"> Gift ideas</div>
-            <div class="main-btn gift-inspiration">Gift inspiration</div>
-            <div class="main-btn change-pin">Change PIN</div>
-            <div class="main-btn occasions">Occasions reminder</div>
-        </div> 
+        <div className="main-container">
+            <h2>MENU</h2>
+            <div class="parent">
+                <div class="main-btn gift-ideas"> Gift ideas</div>
+                <div class="main-btn gift-inspiration">Gift inspiration</div>
+                <div class="main-btn change-pin">Change PIN</div>
+                <div class="main-btn occasions">Occasions reminder</div>
+            </div> 
+        </div>
     )
 }
 

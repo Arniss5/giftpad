@@ -87,15 +87,28 @@
     font-weight: bold;
 } */
 
+.main-container {
+    /* background: #000; */
+    /* background-size: 850px; */
+    text-align: center;  
+}
+
+.main-container h2 {
+    margin-top: 2em;
+    font-size: 2.5rem;
+}
+
 .parent {
     display: grid;
+    width: 90%;
     max-width: 900px;
+    margin: auto;
     align-self: center;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr); 
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    padding: 10vh 1em;
+    /* grid-column-gap: 0px; */
+    /* grid-row-gap: 0px; */
+    /* padding: 15vh 1em; */
     }
     
     /* .gift-ideas { grid-area: 1 / 1 / 4 / 3; }
@@ -120,11 +133,12 @@
     margin: .5em;
     border-radius: 15% 0;
     padding: 0 .3em;
+    transition: all 400ms cubic-bezier(.47,1.64,.41,.8);
     cursor: pointer;
 }
 
 .main-btn:hover {
-    transform: scale(1.1);
+    transform: scale(1.15);
 }
 
 .gift-ideas {
