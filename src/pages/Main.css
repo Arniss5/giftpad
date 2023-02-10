@@ -90,6 +90,7 @@
 .main-container {
     /* background: #000; */
     /* background-size: 850px; */
+    /* background-color: ; */
     text-align: center;  
 }
 
@@ -131,9 +132,10 @@
     max-width: 400px;
     min-height: 200px;
     margin: .5em;
-    border-radius: 15% 0;
+    border-radius: 40px 0 0 0;
     padding: 0 .3em;
-    transition: all 400ms cubic-bezier(.47,1.64,.41,.8);
+    transition: all 400ms ease-in-out;
+    border: 3px solid #000;
     cursor: pointer;
 }
 
@@ -147,13 +149,14 @@
 .gift-inspiration {
     /* color: #fff; */
     /* background-color: #1A2E35; */
-    border-radius: 0 15%;
+    border-radius: 0 40px 0 0;
 }
 .change-pin {
     /* color: #fff; */
     /* background-color: #385A64; */
-    border-radius: 0 15%;
+    border-radius: 0 0 0 40px;
 }
 .occasions {
     background-color: #FF9D90;
+    border-radius: 0 0 40px 0;
 }

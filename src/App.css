@@ -1,14 +1,24 @@
 body {
   /* background-color: #D0D5DB; */
   background-color: #ebebeb;
+  background: url(./images/88280.jpg);
+  background-size: 800px;
   font-family: 'Mulish', sans-serif;
 }
 
 .container {
-  background-color: #FFF;
+    background-color: rgba(255, 255, 255, 0.95);
   width: 100vw;
   min-height: 84vh;
   margin: 0 auto;
   overflow: hidden;
 }
 
+@media (min-width: 1100px) {
+    .container {
+        /* background-color: rgba(255, 255, 255, 0.95); */
+        width: 100vw;
+        max-width: 1600px;
+        margin: 0 auto;
+    }
+}

@@ -92,7 +92,7 @@
   }
   
   @media (min-width: 1100px) {
-    .container {
+    /* .container {
         background-color: #FFF;
         width: 100vw;
         max-width: 1600px;
@@ -101,7 +101,7 @@
     header {
         padding: 2em 5%;
     }
-  
+   */
     .panels-container {
             flex-direction: row;
             height: 80vh;
