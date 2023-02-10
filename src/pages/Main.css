@@ -89,38 +89,57 @@
 
 .parent {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    max-width: 900px;
+    align-self: center;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr); 
     grid-column-gap: 0px;
     grid-row-gap: 0px;
     padding: 10vh 1em;
     }
     
-    .gift-ideas { grid-area: 1 / 1 / 4 / 3; }
+    /* .gift-ideas { grid-area: 1 / 1 / 4 / 3; }
     .gift-inspiration { grid-area: 4 / 1 / 6 / 3; }
     .change-pin { grid-area: 1 / 3 / 3 / 5; }
-    .occasions { grid-area: 3 / 3 / 6 / 5; } 
+    .occasions { grid-area: 3 / 3 / 6 / 5; }  */
 
 
     
 .main-btn {
+    background-color: #FF735C;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color: rgb(0, 0, 0, 0.9); */
+    font-weight: 800;
+    font-size: 1.3rem;
     text-align: center;
+    max-width: 400px;
     min-height: 200px;
     margin: .5em;
-    border-radius: 15% 5%;
+    border-radius: 15% 0;
+    padding: 0 .3em;
+    cursor: pointer;
+}
+
+.main-btn:hover {
+    transform: scale(1.1);
 }
 
 .gift-ideas {
-    background-color: palegoldenrod;
+    background-color: #FF9D90;
 }
 .gift-inspiration {
-    background-color: palevioletred;
-    border-radius: 5% 15%;
+    /* color: #fff; */
+    /* background-color: #1A2E35; */
+    border-radius: 0 15%;
 }
 .change-pin {
-    background-color: paleturquoise;
-    border-radius: 5% 15%;
+    /* color: #fff; */
+    /* background-color: #385A64; */
+    border-radius: 0 15%;
 }
 .occasions {
-    background-color: palegreen;
+    background-color: #FF9D90;
 }
