@@ -87,10 +87,10 @@ function Main() {
         <div className="main-container">
             <h2>MENU</h2>
             <div class="parent">
-                <div class="main-btn gift-ideas"> Gift ideas</div>
-                <div class="main-btn gift-inspiration">Gift inspiration</div>
-                <div class="main-btn change-pin">Change PIN</div>
-                <div class="main-btn occasions">Occasions reminder</div>
+                <div class="main-btn gift-ideas">Gift notes</div>
+                <div class="main-btn gift-inspiration">Dates</div>
+                <div class="main-btn change-pin">PIN</div>
+                <div class="main-btn occasions">Gift ideas</div>
             </div> 
         </div>
     )

@@ -110,6 +110,7 @@
     /* grid-column-gap: 0px; */
     /* grid-row-gap: 0px; */
     /* padding: 15vh 1em; */
+    
     }
     
     /* .gift-ideas { grid-area: 1 / 1 / 4 / 3; }
@@ -120,14 +121,19 @@
 
     
 .main-btn {
-    background-color: #FF735C;
+    /* background: rgb(255,115,92);
+background: linear-gradient(315deg, rgba(255,115,92,1) 55%, rgba(255,157,144,1) 100%); */
+background-image: url(../images/88280orange.jpg);
+background-size: 450px;
+background-position: center;
     text-transform: uppercase;
     display: flex;
     align-items: center;
     justify-content: center;
-    /* color: rgb(0, 0, 0, 0.9); */
+    color: #fff;
+    text-shadow: 2px 2px 2px #000;
     font-weight: 800;
-    font-size: 1.3rem;
+    font-size: 1.8rem;
     text-align: center;
     max-width: 400px;
     min-height: 200px;
@@ -135,7 +141,7 @@
     border-radius: 40px 0 0 0;
     padding: 0 .3em;
     transition: all 400ms ease-in-out;
-    border: 3px solid #000;
+    border: 6px solid #000;
     cursor: pointer;
 }
 
@@ -157,6 +163,18 @@
     border-radius: 0 0 0 40px;
 }
 .occasions {
-    background-color: #FF9D90;
+    background-color: rgb(255, 157, 144);
     border-radius: 0 0 40px 0;
 }
+
+/* h3 {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 900;
+    font-size: rem;
+    background: url(../images/88280.jpg) no-repeat 
+    scroll;
+    background-size: cover;
+    -webkit-background-clip: text;
+    color: transparent;
+} */
