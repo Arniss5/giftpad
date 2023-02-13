@@ -12,6 +12,7 @@ function WelcomePage() {
             context.setEnteredPin(prevPin => prevPin + e.target.innerText
             )       
         }
+        
     }
 
     return (
