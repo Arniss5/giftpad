@@ -9,7 +9,7 @@ function Main() {
             <div class="parent">
                 <div class="main-btn gift-ideas">Gift notes</div>
                 <div class="main-btn gift-inspiration">Dates</div>
-                <div class="main-btn change-pin">PIN</div>
+                <div class="main-btn change-pin">change PIN</div>
                 <div class="main-btn occasions">Gift ideas</div>
             </div> 
         </div>
