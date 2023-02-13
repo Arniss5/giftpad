@@ -11,6 +11,12 @@ function ContextProvider(props) {
     console.log(enteredPin)
     console.log(isPinCorrect)
 
+    function resetPin() {
+       setPin("")
+       setEnteredPin("")
+       setIsPinCorrect(false)
+    }
+
     useEffect(() => {
         localStorage.setItem('pin', pin);
       }, [pin]);
@@ -28,7 +34,7 @@ function ContextProvider(props) {
     }, [enteredPin])
 
     return(
-        <Context.Provider value={{pin, setPin, enteredPin, setEnteredPin, isPinCorrect, setIsPinCorrect}}>
+        <Context.Provider value={{pin, setPin, enteredPin, setEnteredPin, isPinCorrect, setIsPinCorrect, resetPin}}>
             {props.children}
         </Context.Provider>
     )
