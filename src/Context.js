@@ -28,8 +28,11 @@ function ContextProvider(props) {
     // }, [pin])
     
     useEffect(()=> {
-        if(enteredPin.length === 4) {
+        if(enteredPin.length === 4 && enteredPin === pin) {
             setIsPinCorrect(true)
+        } else if (enteredPin.length === 4) {
+            alert("Incorrect PIN!")
+            setEnteredPin("")
         }
     }, [enteredPin])
 
