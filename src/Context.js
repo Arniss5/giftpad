@@ -20,12 +20,6 @@ function ContextProvider(props) {
     useEffect(() => {
         localStorage.setItem('pin', pin);
       }, [pin]);
-
-    // useEffect(()=> {
-    //     if(pin.length === 4) {
-    //         alert("PIN set! Please enter your new PIN:")
-    //     }
-    // }, [pin])
     
     useEffect(()=> {
         if(enteredPin.length === 4 && enteredPin === pin) {

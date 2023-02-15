@@ -1,6 +1,7 @@
 
 import React, {useContext} from "react";
 import { Context } from "../Context";
+import { Link } from "react-router-dom";
 import './Main.css'
 
 function Main() {
@@ -11,10 +12,10 @@ function Main() {
         <div className="main-container">
             <h2>MENU</h2>
             <div class="parent">
-                <div class="main-btn gift-ideas">Gift notes</div>
-                <div class="main-btn gift-inspiration">Dates</div>
+                <Link to="/gift-notes"><div class="main-btn gift-notes">Gift notes</div></Link>
+                <div class="main-btn dates">Dates</div>
                 <div class="main-btn change-pin" onClick={context.resetPin}>change PIN</div>
-                <div class="main-btn occasions">Gift ideas</div>
+                <div class="main-btn ideas">Gift ideas</div>
             </div> 
         </div>
     )

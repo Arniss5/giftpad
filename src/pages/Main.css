@@ -17,6 +17,10 @@
     grid-template-rows: repeat(2, 1fr);  
 }
 
+.parent a {
+    text-decoration: none;
+}
+
     
 .main-btn {
     background-image: url(../images/88280orange.jpg);
@@ -46,14 +50,14 @@
 }
 
 
-.gift-inspiration {
-    border-radius: 0 40px 0 0;
+.ideas {
+    border-radius: 0 0 40px 0;
 }
 .change-pin {
     border-radius: 0 0 0 40px;
 }
-.occasions {
-    border-radius: 0 0 40px 0;
+.dates {
+    border-radius: 0 40px 0 0;
 }
 
 
