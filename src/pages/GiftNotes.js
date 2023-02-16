@@ -49,8 +49,12 @@ function GiftNotes() {
     return(
         <div className="gift-notes-container">
             <div className="notes">
-                <Note />
-                <Note />
+                <Note display="hidden"/>
+                <Note expanded="expanded"/>
+                <Note display="hidden"/>
+                <Note display="hidden"/>
+                <Note display="hidden"/>
+                <Note display="hidden"/>
                 {/* <Note 
                     isCollapsed={isCollapsed}
                     isExpanded={isExpanded}

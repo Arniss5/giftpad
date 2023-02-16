@@ -1,12 +1,12 @@
 
 .note-container {
-     background: rgb(255,115,92); 
+     background: #3E7080; 
     color: #192D33;
     text-align: center;
     border-radius: 1em;
     font-size: 1.2rem;
     width: 100%;
-    
+    height: 100%;
 }
 
 
@@ -21,7 +21,7 @@
     font-size: 2rem;
     text-transform: uppercase;
     margin: .5em;
-    text-shadow: 2px 1px 2px rgba(39, 39, 39, 0.822);
+    /* text-shadow: 2px 1px 2px rgba(39, 39, 39, 0.822); */
     transition: all 300ms ease;
 }
 
@@ -41,7 +41,10 @@
     border-radius: .3em;
     margin: 1em;
     text-align: left;
-    /* display: none; */
+}
+
+.hidden {
+    display: none;
 }
 
 .hobbies h4, .gifts-container h4 {
@@ -50,7 +53,7 @@
 }
 
 .gift {
-    box-shadow: 0 1px 5px #192D33;
+    box-shadow: 0px 2px 3px 0px #192d3350;
     padding-bottom: 1em;
     background-color: rgb(240, 240, 240);
     padding: .8em .5em;
@@ -70,7 +73,7 @@
 .gifts button {
     font-weight: 700;
     text-transform: uppercase;
-    background-color: #192D33;
+    background-color: #ff735c;
     color: #f5f5f5;
     width: calc(100% - 4em);
     margin: 1em 2em;
@@ -84,4 +87,21 @@
         width: calc(50% - 1em);
         margin-right: auto;
     }
+    .note-container.expanded {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .note-container.expanded .info {
+        width: 50%;
+    }
+    .note-container.expanded .gifts-container {
+        width: 50%;
+    }
+
+
+    /* .note {
+        width: 100%;
+    } */
 }

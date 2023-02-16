@@ -6,12 +6,11 @@ function Note(props) {
 
 
     return(
-        <div className="note-container">
+        <div className={`note-container ${props.expanded}`}>
             <div className="info">
                 <h3>Ross</h3>   
                 <p>Birthday: 02/01/1991</p>
-            </div>
-            <div className="hobbies">
+                <div className={`hobbies ${props.display}`}>
                 <h4>Hobbies:</h4>
                 <ul>
                     <li>Warhammer</li>
@@ -19,9 +18,21 @@ function Note(props) {
                     <li>Video games</li>
                 </ul>
             </div>
-            <div className="gifts-container">
+            </div>
+            
+            <div className={`gifts-container ${props.display}`}>
                 <h4>Gift ideas:</h4>
                 <div className="gifts">
+                    <div className="gift">
+                        <h5>Shoes</h5>
+                        <p>Such and such shoes seem here and here</p>
+                        <div>www.blahblah.com</div>
+                    </div>
+                    <div className="gift">
+                        <h5>Shoes</h5>
+                        <p>Such and such shoes seem here and here</p>
+                        <div>www.blahblah.com</div>
+                    </div>
                     <div className="gift">
                         <h5>Shoes</h5>
                         <p>Such and such shoes seem here and here</p>
