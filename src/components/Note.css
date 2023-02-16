@@ -1,7 +1,7 @@
 
 .note-container {
-    background-color: #f07167;
-    color: #f5f5f5;
+     background: rgb(255,115,92); 
+    color: #192D33;
     text-align: center;
     border-radius: 1em;
     font-size: 1.2rem;
@@ -9,7 +9,9 @@
     
 }
 
+
 .info {
+    color: #f5f5f5;
     cursor: pointer;
 }
 
@@ -19,7 +21,7 @@
     font-size: 2rem;
     text-transform: uppercase;
     margin: .5em;
-    text-shadow: 1px 1px 1px rgba(39, 39, 39, 0.822);
+    text-shadow: 2px 1px 2px rgba(39, 39, 39, 0.822);
     transition: all 300ms ease;
 }
 
@@ -48,21 +50,33 @@
 }
 
 .gift {
-    border-bottom: 2px solid #192D33;
+    box-shadow: 0 1px 5px #192D33;
     padding-bottom: 1em;
     background-color: rgb(240, 240, 240);
     padding: .8em .5em;
+    margin: .5em;
     /* font-size: .7rem; */
 }
 .gift h5 {
     font-size: 1.2rem;
     margin: 0;
-    
 }
 
 .gift p {
     font-size: 1rem;
     
+}
+
+.gifts button {
+    font-weight: 700;
+    text-transform: uppercase;
+    background-color: #192D33;
+    color: #f5f5f5;
+    width: calc(100% - 4em);
+    margin: 1em 2em;
+    padding: 1em;
+    border: none;
+    border-radius: 2em;
 }
 
 @media (min-width: 1100px) {
