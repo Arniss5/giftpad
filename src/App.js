@@ -18,7 +18,7 @@ function App() {
         <Header />
       <div className='container'>
         <Routes>
-          <Route exact path='/' element={context.isPinCorrect ? <Main/> : <WelcomePage />}/>
+          <Route exact path='/giftpad' element={context.isPinCorrect ? <Main/> : <WelcomePage />}/>
           {/* <Route exact path='/main' element={<Main />}/> */}
           <Route exact path='/gift-notes' element={<GiftNotes />}/>
         </Routes>

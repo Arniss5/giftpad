@@ -1,3 +1,37 @@
+.gift-notes-container {
+    background-color: rgba(255, 255, 255, 1);
+    
+    min-height: 84vh;
+    /* margin: 0 auto; */
+    overflow: hidden;
+    padding: 6vw;
+    /* width: 100%; */
+}
+
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (min-width: 1100px) {
+    .gift-notes-container {
+        /* background-color: rgba(255, 255, 255, 0.95); */
+        /* width: 100vw; */
+        max-width: 1600px;
+        /* margin: 0 auto; */
+    }
+}
+
+@media (min-width: 1600px) {
+    .gift-notes-container {
+        /* background-color: rgba(255, 255, 255, 0.95); */
+        /* width: 85vw; */
+        /* max-width: 1600px;
+        margin: 0 auto; */
+    }
+}
+
+
 /* body {
     background: #eceef1;
     font-family: 'Slabo 27px', serif;

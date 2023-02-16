@@ -16,11 +16,11 @@ function GiftNotes() {
         }
     ])
 
-    const notesElements = notes.map(note => {
-        return (
+    // const notesElements = notes.map(note => {
+    //     return (
  
-        )
-    })
+    //     )
+    // })
 
     // const [isCollapsed, setIsCollapsed] = useState(true);
     // const [isExpanded, setIsExpanded] = useState(false);
@@ -47,9 +47,11 @@ function GiftNotes() {
     
 
     return(
-        <div className="wrapper">
-            <div className="cards">
-                <Note 
+        <div className="gift-notes-container">
+            <div className="notes">
+                <Note />
+                <Note />
+                {/* <Note 
                     isCollapsed={isCollapsed}
                     isExpanded={isExpanded}
                     isInactive={isInactive}
@@ -76,7 +78,7 @@ function GiftNotes() {
                     isInactive={isInactive}
                     handleExpanderClick={handleExpanderClick}
                     handleCollapserClick={handleCollapserClick}
-                />
+                /> */}
             </div>
         </div>
     )
