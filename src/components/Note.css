@@ -3,7 +3,7 @@
      background: #3E7080; 
     color: #192D33;
     text-align: center;
-    border-radius: 1em;
+    border-radius: .5em;
     font-size: 1.2rem;
     width: 100%;
     height: 100%;
@@ -23,6 +23,7 @@
     margin: .5em;
     /* text-shadow: 2px 1px 2px rgba(39, 39, 39, 0.822); */
     transition: all 300ms ease;
+    pointer-events: none
 }
 
 .info:hover h3 {
@@ -32,6 +33,7 @@
 .note-container p {
     font-weight: 500;
     font-size: 1.5rem;
+    pointer-events: none
 }
 
 .hobbies, .gifts-container {

@@ -7,9 +7,7 @@ function ContextProvider(props) {
 
     const [enteredPin, setEnteredPin] = useState("")
     const [isPinCorrect, setIsPinCorrect] = useState(false)
-    console.log(pin)
-    console.log(enteredPin)
-    console.log(isPinCorrect)
+ 
 
     function resetPin() {
        setPin("")
