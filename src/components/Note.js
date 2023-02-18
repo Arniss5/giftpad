@@ -1,25 +1,29 @@
 import React, {useState} from "react";
 import "./Note.css"
+import { nanoid } from "nanoid";
 
 function Note(props) {
+
+    const [isHidden, setIsHidden] = useState(true);
     
-    const hobbiesEls = props.hobbies.map(hobby => <li>{hobby}</li>)
+    const hobbiesEls = props.hobbies.map(hobby => <li key={nanoid()}>{hobby}</li>)
     const giftEls = props.ideas.map(idea => (
-        <div className="gift">
+        <div className="gift" key={nanoid()}>
             <h5>{idea.idea}</h5>
             <p>{idea.comments}</p>
             <div>{idea.url}</div>
         </div>
     ))
 
+    
     return(
-        <div className={`note-container ${props.expanded}`}>
+        <div className={`note-container`}>
             <div className="info" >
-                <div className="header-el" onClick={props.handleClick}>
+                <div className="header-el" onClick={() => setIsHidden(!isHidden)} id={props.elId}>
                     <h3>{props.name}</h3>   
                     <p>Birthday: {props.birthday[0]}/{props.birthday[1]}/{props.birthday[2]}</p>
                 </div>
-                <div className={`hobbies ${props.display}`}>
+                <div className={`hobbies ${isHidden ? "hidden" : ""}`}>
                 <h4>Hobbies:</h4>
                 <ul>
                     {hobbiesEls}
@@ -27,7 +31,7 @@ function Note(props) {
             </div>
             </div>
             
-            <div className={`gifts-container ${props.display}`}>
+            <div className={`gifts-container ${isHidden ? "hidden" : ""}`}>
                 <h4>Gift ideas:</h4>
                 <div className="gifts">
                     {giftEls}

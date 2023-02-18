@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from "react";
 import "./GiftNotes.css"
 import Note from "../components/Note";
+import { nanoid } from "nanoid";
 
 
 function GiftNotes() {
 
    
     const [notes, setNotes] = useState([
-        {
+        {   
+            elId: nanoid(),
             name: "Kasia",
             hobbies: ["coding", "films", "boardgames"],
             birthday: [16, 3, 1991],
@@ -15,6 +17,7 @@ function GiftNotes() {
             active: false
         },
         {
+            elId: nanoid(),
             name: "Ross",
             hobbies: ["warhammer", "magic", "video games"],
             birthday: [2, 1, 1991],
@@ -22,6 +25,7 @@ function GiftNotes() {
             active: false
         },
         {
+            elId: nanoid(),
             name: "Basia",
             hobbies: ["coding", "films", "boardgames"],
             birthday: [16, 3, 1991],
@@ -32,15 +36,15 @@ function GiftNotes() {
 
     let notesEl =  notes.map(note => {
         return <Note 
+            key={nanoid()}
+            elId={note.elId}
             name={note.name}
             hobbies={note.hobbies}
             birthday={note.birthday}
             ideas={note.ideas}
             active={note.active}
-            display="display"
-            extended="extended"
-            handleClick={handleClick}
-        />})
+        />
+    })
 
     // useEffect(() => {
     //     notesEl = notes.map(note => {
@@ -51,19 +55,30 @@ function GiftNotes() {
     //             ideas={note.ideas}
     //             active={note.active}
     //             display="display"
-    //             extended="extended"
+    //             extended=""
     //             handleClick={handleClick}
     //         />
-    //         console.log(notesEl)
     //     })
     // }, [notes])
-    console.log(notesEl)
 
-    function handleClick(e) {
-        if(e.target.className.includes("header-el")) {
-            
-        }
-    }
+
+    // function handleClick(e) {
+    //     // notes.map(note => {
+    //     //     if (note.elId == e.target.id) {
+    //     //         console.log("hey")
+    //     //     }
+    //     // })
+
+    //     setNotes(prevNotes => {
+    //         return prevNotes.map(note => {
+    //             if (note.elId == e.target.id) {
+    //                 return {...note, extended:"extended"}
+    //             } else {
+
+    //             }
+    //         })
+    //     })
+    // }
 
     return(
         <div className="gift-notes-container">
