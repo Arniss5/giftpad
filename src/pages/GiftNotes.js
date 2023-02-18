@@ -11,7 +11,9 @@ function GiftNotes() {
         {
             elId: nanoid(),
             name: "",
-            hobbies: "",
+            hobby1: "",
+            hobby2: "",
+            hobby3: "",
             birthday: "",
         }
     )
@@ -87,21 +89,49 @@ function GiftNotes() {
             <div className="add-note">
                 <h3>ADD NEW NOTE</h3>
                 <form>
+                    <label htmlFor="name-input">Name:</label>
                     <input
+                        id="name-input"
                         type="text"
                         placeholder="Giftee's name"
                         onChange={handleChange}
                         name="name"
                         value={formData.name}
                     />
-                     <input
+                    <label htmlFor="dob-input">Date of birth:</label>
+                    <input
+                        id="dob-input"
                         type="date"
                         placeholder="Date of birth"
                         onChange={handleChange}
                         name="birthday"
                         value={formData.birthday}
-
+                    />
+                    <fieldset>
+                        <legend>Hobbies:</legend>
+                        <input
+                            type="text"
+                            placeholder="Hobby 1"
+                            onChange={handleChange}
+                            name="hobby1"
+                            value={formData.birthday}
                         />
+                        <input
+                            type="text"
+                            placeholder="Hobby 2"
+                            onChange={handleChange}
+                            name="hobby2"
+                            value={formData.birthday}
+                        />
+                        <input
+                            type="text"
+                            placeholder="Hobby 3"
+                            onChange={handleChange}
+                            name="hobby3"
+                            value={formData.birthday}
+                        />
+                    </fieldset>
+                    <button className="add-btn">ADD</button>
                 </form>
             </div>
             <div className="notes">
