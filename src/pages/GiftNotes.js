@@ -35,21 +35,21 @@ function GiftNotes() {
             elId: nanoid(),
             name: "Kasia",
             hobbies: ["coding", "films", "boardgames"],
-            birthday: [16, 3, 1991],
+            birthday: "1991-03-16",
             ideas: [{idea: "Hogwarts game", comments: "blah bluh bloh", url: "www.google.com"}],
         },
         {
             elId: nanoid(),
             name: "Ross",
             hobbies: ["warhammer", "magic", "video games"],
-            birthday: [2, 1, 1991],
+            birthday: "1991-02-01",
             ideas: [{idea: "Shoes", comments: "such and such shoes", url: "www.google.com"}, {idea:"headphones", comments: "blah", url: ""}],
         },
         {
             elId: nanoid(),
             name: "Basia",
             hobbies: ["coding", "films", "boardgames"],
-            birthday: [16, 3, 1991],
+            birthday: "1991-03-16",
             ideas: [{idea: "Hogwarts game", comments: "blah", url: "www.google.com"}],
         }
     ])
@@ -83,7 +83,7 @@ function GiftNotes() {
 
     return(
         <>
-        <h2>Gift notes:</h2>
+        <h2>Gift notes</h2>
         <div className="gift-notes-container">
             
             <div className="add-note">

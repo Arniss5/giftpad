@@ -15,13 +15,14 @@ function Note(props) {
         </div>
     ))
 
+    // const birthday = `$`
     
     return(
         <div className={`note-container`}>
             <div className="info" >
                 <div className="header-el" onClick={() => setIsHidden(!isHidden)} id={props.elId}>
                     <h3>{props.name}</h3>   
-                    <p>Birthday: {props.birthday[0]}/{props.birthday[1]}/{props.birthday[2]}</p>
+                    <p>Birthday: {props.birthday}</p>
                 </div>
                 <div className={`hobbies ${isHidden ? "hidden" : ""}`}>
                 <h4>Hobbies:</h4>

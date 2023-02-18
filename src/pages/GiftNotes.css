@@ -1,9 +1,15 @@
 .gift-notes-container {
     background-color: rgba(255, 255, 255, 1); 
-    min-height: 84vh;
+    /* min-height: 74vh; */
     overflow: hidden;
-    padding: 5em 6vw;
+    padding: 1em 6vw 3em 6vw;
     max-width: 1600px;
+}
+
+h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 2.5rem;
 }
 
 .notes {
@@ -20,14 +26,24 @@
     border-radius: .5em;
     font-size: 1.2rem;
     width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
     height: 100%;
     box-shadow: 1px 1px 10px #797979;
+    margin-bottom: 2em;
+}
+
+.add-note h3 {
+    font-size: 2rem;
+    padding: 1em;
+    cursor: pointer;
 }
 
 .add-note form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    display: none;
 }
 
 .add-note form input {
@@ -40,7 +56,7 @@
 }
 
 .add-note form input:focus {
-    outline: 3px solid #3E7080;
+    outline: 4px solid #3E7080;
 }
 
 .add-note form fieldset {
@@ -69,17 +85,25 @@
     transform: scale(1.02);
 }
 
-@media (min-width: 850px) {
+@media (min-width: 1040px) {
     .gift-notes-container {
         display: flex;
-        justify-content: space-between;
-        /* background-color: rgba(255, 255, 255, 0.95); */
-        /* width: 85vw; */
-        /* max-width: 1600px;
-        margin: 0 auto; */
+        /* justify-items: space-between; */
+        align-content: space-between;
+        gap: 10%;
+        /* padding: 1em 3em 3em 0; */
     }
+
+    .add-note h3 {
+        padding: .3em;
+    }
+
+    .gift-notes-container form {
+        display: flex
+    }
+
     .notes {
-        width: 60%;
+        width: 55%;
     }
 
     .add-note {
