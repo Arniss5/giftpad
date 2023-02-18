@@ -17,7 +17,7 @@ function GiftNotes() {
             birthday: "",
         }
     )
-
+        console.log(formData)
 
     function handleChange(event) {
         const {name, value, type, checked} = event.target
@@ -114,21 +114,21 @@ function GiftNotes() {
                             placeholder="Hobby 1"
                             onChange={handleChange}
                             name="hobby1"
-                            value={formData.birthday}
+                            value={formData.hobby1}
                         />
                         <input
                             type="text"
                             placeholder="Hobby 2"
                             onChange={handleChange}
                             name="hobby2"
-                            value={formData.birthday}
+                            value={formData.hobby2}
                         />
                         <input
                             type="text"
                             placeholder="Hobby 3"
                             onChange={handleChange}
                             name="hobby3"
-                            value={formData.birthday}
+                            value={formData.hobby3}
                         />
                     </fieldset>
                     <button className="add-btn">ADD</button>
