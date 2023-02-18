@@ -7,6 +7,27 @@ import { nanoid } from "nanoid";
 function GiftNotes() {
 
    
+    const [formData, setFormData] = useState(
+        {
+            elId: nanoid(),
+            name: "",
+            hobbies: "",
+            birthday: "",
+        }
+    )
+
+
+    function handleChange(event) {
+        const {name, value, type, checked} = event.target
+
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: type === "checkbox" ? checked : value
+            }
+        })
+    }
+
     const [notes, setNotes] = useState([
         {   
             elId: nanoid(),
@@ -14,7 +35,6 @@ function GiftNotes() {
             hobbies: ["coding", "films", "boardgames"],
             birthday: [16, 3, 1991],
             ideas: [{idea: "Hogwarts game", comments: "blah bluh bloh", url: "www.google.com"}],
-            active: false
         },
         {
             elId: nanoid(),
@@ -22,7 +42,6 @@ function GiftNotes() {
             hobbies: ["warhammer", "magic", "video games"],
             birthday: [2, 1, 1991],
             ideas: [{idea: "Shoes", comments: "such and such shoes", url: "www.google.com"}, {idea:"headphones", comments: "blah", url: ""}],
-            active: false
         },
         {
             elId: nanoid(),
@@ -30,7 +49,6 @@ function GiftNotes() {
             hobbies: ["coding", "films", "boardgames"],
             birthday: [16, 3, 1991],
             ideas: [{idea: "Hogwarts game", comments: "blah", url: "www.google.com"}],
-            active: false
         }
     ])
 
@@ -42,7 +60,6 @@ function GiftNotes() {
             hobbies={note.hobbies}
             birthday={note.birthday}
             ideas={note.ideas}
-            active={note.active}
         />
     })
 
@@ -62,36 +79,38 @@ function GiftNotes() {
     // }, [notes])
 
 
-    // function handleClick(e) {
-    //     // notes.map(note => {
-    //     //     if (note.elId == e.target.id) {
-    //     //         console.log("hey")
-    //     //     }
-    //     // })
-
-    //     setNotes(prevNotes => {
-    //         return prevNotes.map(note => {
-    //             if (note.elId == e.target.id) {
-    //                 return {...note, extended:"extended"}
-    //             } else {
-
-    //             }
-    //         })
-    //     })
-    // }
-
     return(
+        <>
+        <h2>Gift notes:</h2>
         <div className="gift-notes-container">
+            
+            <div className="add-note">
+                <h3>ADD NEW NOTE</h3>
+                <form>
+                    <input
+                        type="text"
+                        placeholder="Giftee's name"
+                        onChange={handleChange}
+                        name="name"
+                        value={formData.name}
+                    />
+                     <input
+                        type="date"
+                        placeholder="Date of birth"
+                        onChange={handleChange}
+                        name="birthday"
+                        value={formData.birthday}
+
+                        />
+                </form>
+            </div>
             <div className="notes">
+                
                 {notesEl}
-                {/* <Note display="hidden" />
-                <Note expanded="expanded"/>
-                <Note display="hidden" />
-                <Note display="hidden"/>
-                <Note display="hidden"/>
-                <Note display="hidden"/> */}
             </div>
         </div>
+        </>
+        
     )
 }
 

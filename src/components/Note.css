@@ -86,7 +86,7 @@
 
 @media (min-width: 1100px) {
     .note-container {
-        width: calc(50% - 1em);
+        /* width: calc(50% - 1em); */
         margin-right: auto;
     }
     .note-container.expanded {
@@ -95,12 +95,12 @@
         justify-content: space-between;
     }
 
-    .note-container.expanded .info {
-        width: 50%;
+    /* .note-container.expanded .info {
+        width: 40%;
     }
     .note-container.expanded .gifts-container {
-        width: 50%;
-    }
+        width: 60%;
+    } */
 
 
     /* .note {
