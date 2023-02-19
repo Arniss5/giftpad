@@ -25,12 +25,14 @@ function GiftNotes() {
         setFormData(prevFormData => {
             return {
                 ...prevFormData,
-                [name]: type === "checkbox" ? checked : value
+                [name]: value
             }
         })
     }
 
-    const [notes, setNotes] = useState([
+
+
+    const [notes, setNotes] = useState(localStorage.getItem("notes") === null? `[
         {
             elId: nanoid(),
             name: "Kasia",
@@ -49,7 +51,16 @@ function GiftNotes() {
             birthday: "1991-02-01",
             ideas: []
         }
-    ])
+    ]` : JSON.parse(localStorage.getItem("notes")))
+
+    console.log(notes)
+
+    useEffect(() => {
+        localStorage.setItem('notes', JSON.stringify(notes))
+      }, [notes]);
+
+
+    console.log(JSON.parse(localStorage.getItem('notes')))
 
     let notesEl =  notes.map(note => {
         return <Note 
@@ -72,8 +83,15 @@ function GiftNotes() {
                 formData
             ]
         ))
-        console.log(formData)
-        console.log(notes)
+        setFormData({
+            elId: nanoid(),
+            name: "",
+            hobby1: "",
+            hobby2: "",
+            hobby3: "",
+            birthday: "",
+            ideas: []
+        })
     }
 
     // useEffect(() => {

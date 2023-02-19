@@ -19,7 +19,9 @@ function Note(props) {
     
     return(
         <div className={`note-container`}>
+            
             <div className="info" >
+                <i class={`fa-solid fa-trash ${isHidden ? "hidden" : ""}`}></i>
                 <div className="header-el" onClick={() => setIsHidden(!isHidden)} id={props.elId}>
                     <h3>{props.name}</h3>   
                     <p>Birthday: {props.birthday}</p>
@@ -31,7 +33,7 @@ function Note(props) {
                     <li>{props.hobby2}</li>
                     <li>{props.hobby3}</li>
                 </ul>
-            </div>
+                </div>
             </div>
             
             <div className={`gifts-container ${isHidden ? "hidden" : ""}`}>
