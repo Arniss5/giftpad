@@ -15,9 +15,9 @@ function GiftNotes() {
             hobby2: "",
             hobby3: "",
             birthday: "",
+            ideas: []
         }
     )
-        console.log(formData)
 
     function handleChange(event) {
         const {name, value, type, checked} = event.target
@@ -31,26 +31,23 @@ function GiftNotes() {
     }
 
     const [notes, setNotes] = useState([
-        {   
+        {
             elId: nanoid(),
             name: "Kasia",
-            hobbies: ["coding", "films", "boardgames"],
+            hobby1: "coding",
+            hobby2: "films",
+            hobby3: "boardgames",
             birthday: "1991-03-16",
-            ideas: [{idea: "Hogwarts game", comments: "blah bluh bloh", url: "www.google.com"}],
+            ideas: []
         },
         {
             elId: nanoid(),
             name: "Ross",
-            hobbies: ["warhammer", "magic", "video games"],
+            hobby1: "warhammer",
+            hobby2: "magic",
+            hobby3: "video games",
             birthday: "1991-02-01",
-            ideas: [{idea: "Shoes", comments: "such and such shoes", url: "www.google.com"}, {idea:"headphones", comments: "blah", url: ""}],
-        },
-        {
-            elId: nanoid(),
-            name: "Basia",
-            hobbies: ["coding", "films", "boardgames"],
-            birthday: "1991-03-16",
-            ideas: [{idea: "Hogwarts game", comments: "blah", url: "www.google.com"}],
+            ideas: []
         }
     ])
 
@@ -59,11 +56,25 @@ function GiftNotes() {
             key={nanoid()}
             elId={note.elId}
             name={note.name}
-            hobbies={note.hobbies}
+            hobby1={note.hobby1}
+            hobby2={note.hobby2}
+            hobby3={note.hobby3}
             birthday={note.birthday}
             ideas={note.ideas}
         />
     })
+
+    function addNote(e) {
+        e.preventDefault()
+        setNotes(prevNotes => (
+            [
+                ...prevNotes,
+                formData
+            ]
+        ))
+        console.log(formData)
+        console.log(notes)
+    }
 
     // useEffect(() => {
     //     notesEl = notes.map(note => {
@@ -131,7 +142,7 @@ function GiftNotes() {
                             value={formData.hobby3}
                         />
                     </fieldset>
-                    <button className="add-btn">ADD</button>
+                    <button className="add-btn" onClick={addNote}>ADD</button>
                 </form>
             </div>
             <div className="notes">
