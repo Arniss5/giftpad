@@ -72,6 +72,7 @@ function GiftNotes() {
             hobby3={note.hobby3}
             birthday={note.birthday}
             ideas={note.ideas}
+            deleteNote={deleteNote}
         />
     })
 
@@ -92,6 +93,16 @@ function GiftNotes() {
             birthday: "",
             ideas: []
         })
+    }
+
+    function deleteNote(e) {
+        setNotes(prevNotes => {
+            // let newNotes = []
+            // newNotes = 
+            return prevNotes.filter(note => e.target.parentElement.id !== note.elId)
+        })
+
+
     }
 
     // useEffect(() => {

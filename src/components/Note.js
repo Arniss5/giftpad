@@ -18,11 +18,11 @@ function Note(props) {
     // const birthday = `$`
     
     return(
-        <div className={`note-container`}>
-            
+        <div className={`note-container`} id={props.elId}>
+            <i class={`fa-solid fa-trash ${isHidden ? "hidden" : ""}`} onClick={props.deleteNote}></i>
             <div className="info" >
-                <i class={`fa-solid fa-trash ${isHidden ? "hidden" : ""}`}></i>
-                <div className="header-el" onClick={() => setIsHidden(!isHidden)} id={props.elId}>
+                
+                <div className="header-el" onClick={() => setIsHidden(!isHidden)} >
                     <h3>{props.name}</h3>   
                     <p>Birthday: {props.birthday}</p>
                 </div>
