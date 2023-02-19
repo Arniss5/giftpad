@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 
 
 function GiftNotes() {
+    const [isHidden, setIsHidden] = useState(true);
     const [formData, setFormData] = useState(
         {
             elId: nanoid(),
@@ -124,8 +125,8 @@ function GiftNotes() {
         <div className="gift-notes-container">
             
             <div className="add-note">
-                <h3>ADD NEW NOTE</h3>
-                <form>
+                <h3 onClick={() => setIsHidden(!isHidden)}>ADD NEW NOTE</h3>
+                <form className={isHidden ? "hidden" : ""} onSubmit={addNote}>
                     <label htmlFor="name-input">Name:</label>
                     <input
                         id="name-input"
@@ -169,7 +170,7 @@ function GiftNotes() {
                             value={formData.hobby3}
                         />
                     </fieldset>
-                    <button type="submit" className="add-btn" onSubmit={addNote}>ADD</button>
+                    <button type="submit" className="add-btn" >ADD</button>
                 </form>
             </div>
             <div className="notes">
