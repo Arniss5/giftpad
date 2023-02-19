@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import "./Note.css"
+import formatDate from "../utils/utils";
 import { nanoid } from "nanoid";
 
 function Note(props) {
@@ -15,7 +16,7 @@ function Note(props) {
         </div>
     ))
 
-    // const birthday = `$`
+    const formattedBirthday = formatDate(props.birthday)
     
     return(
         <div className={`note-container`} id={props.elId}>
@@ -24,7 +25,7 @@ function Note(props) {
                 
                 <div className="header-el" onClick={() => setIsHidden(!isHidden)} >
                     <h3>{props.name}</h3>   
-                    <p>Birthday: {props.birthday}</p>
+                    <p><strong>Birthday:</strong> {formattedBirthday}</p>
                 </div>
                 <div className={`hobbies ${isHidden ? "hidden" : ""}`}>
                 <h4>Hobbies:</h4>

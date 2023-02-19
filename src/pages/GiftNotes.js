@@ -1,12 +1,11 @@
 import React, {useEffect, useState} from "react";
 import "./GiftNotes.css"
 import Note from "../components/Note";
+
 import { nanoid } from "nanoid";
 
 
 function GiftNotes() {
-
-   
     const [formData, setFormData] = useState(
         {
             elId: nanoid(),
@@ -97,13 +96,11 @@ function GiftNotes() {
 
     function deleteNote(e) {
         setNotes(prevNotes => {
-            // let newNotes = []
-            // newNotes = 
             return prevNotes.filter(note => e.target.parentElement.id !== note.elId)
         })
-
-
     }
+
+    
 
     // useEffect(() => {
     //     notesEl = notes.map(note => {
@@ -137,6 +134,7 @@ function GiftNotes() {
                         onChange={handleChange}
                         name="name"
                         value={formData.name}
+                        required
                     />
                     <label htmlFor="dob-input">Date of birth:</label>
                     <input
@@ -171,7 +169,7 @@ function GiftNotes() {
                             value={formData.hobby3}
                         />
                     </fieldset>
-                    <button className="add-btn" onClick={addNote}>ADD</button>
+                    <button type="submit" className="add-btn" onSubmit={addNote}>ADD</button>
                 </form>
             </div>
             <div className="notes">

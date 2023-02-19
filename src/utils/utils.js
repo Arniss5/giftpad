@@ -4,5 +4,4 @@ function formatDate(dateString) {
     return date.toLocaleDateString('en-US', options);
 }
 
-
-console.log(formatDate(1991-03-16))
+export default formatDate
