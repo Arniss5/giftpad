@@ -7,7 +7,7 @@ function Note(props) {
 
     const [isHidden, setIsHidden] = useState(true);
     
-    // const hobbiesEls = props.hobbies.map(hobby => <li key={nanoid()}>{hobby}</li>)
+    const hobbiesEls = props.hobbies.map(hobby => hobby ? <li key={nanoid()}>{hobby}</li> : "")
     const giftEls = props.ideas.map(idea => (
         <div className="gift" key={nanoid()}>
             <h5>{idea.idea}</h5>
@@ -30,9 +30,10 @@ function Note(props) {
                 <div className={`hobbies ${isHidden ? "hidden" : ""}`}>
                 <h4>Hobbies:</h4>
                 <ul>
-                    <li>{props.hobby1}</li>
+                    {hobbiesEls}
+                    {/* <li>{props.hobby1}</li>
                     <li>{props.hobby2}</li>
-                    <li>{props.hobby3}</li>
+                    <li>{props.hobby3}</li> */}
                 </ul>
                 </div>
             </div>

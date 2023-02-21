@@ -67,7 +67,7 @@ function GiftNotes() {
             key={nanoid()}
             elId={note.elId}
             name={note.name}
-            hobby1={note.hobby1}
+            hobbies={[note.hobby1, note.hobby2, note.hobby3]}
             hobby2={note.hobby2}
             hobby3={note.hobby3}
             birthday={note.birthday}
