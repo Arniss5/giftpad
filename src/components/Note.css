@@ -100,6 +100,48 @@
     
 }
 
+.gifts form,
+.gifts fieldset {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: auto;
+}
+
+.gifts fieldset {
+    /* border: 5px solid #3E7080; */
+    background-color: #e8f1f5;
+}
+.gifts fieldset legend {
+    color: #192D33;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-bottom: .7em;
+}
+
+.gifts form input,
+.gifts form textarea {
+    color: #192D33;
+    border: none;
+    border-radius: 20px;
+    padding: .5em;
+    margin: .3em 0 .6em 0;
+}
+
+#image-input {
+    display: none;
+}
+
+.customUploadBtn i {
+    font-size: 1.5rem;
+    padding: .5em;
+    margin: .2em;
+    background-color: #3E7080;
+    color: #e8f1f5;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
 .gifts button {
     font-weight: 700;
     text-transform: uppercase;
