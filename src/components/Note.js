@@ -16,7 +16,7 @@ function Note(props) {
         </div>
     ))
 
-    const formattedBirthday = formatDate(props.birthday)
+    const formattedBirthday = props.birthday ? formatDate(props.birthday) : "Unknown"
     
     return(
         <div className={`note-container`} id={props.elId}>
