@@ -53,14 +53,10 @@ function GiftNotes() {
         }
     ]` : JSON.parse(localStorage.getItem("notes")))
 
-    console.log(notes)
 
     useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notes))
       }, [notes]);
-
-
-    console.log(JSON.parse(localStorage.getItem('notes')))
 
     let notesEl =  notes.map(note => {
         return <Note 

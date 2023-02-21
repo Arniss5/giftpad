@@ -8,18 +8,24 @@ function Note(props) {
     // EXPAND CARD?
     const [isHidden, setIsHidden] = useState(true);
     
-    const [gifts, setGift] = useState([])
+    const [gifts, setGift] = useState([{
+        elId: nanoid(),
+        gift: "warhammer",
+        comments: "whatever",
+        url: "www.dupa.com",
+    }])
 
     // FORMAT PROPS BEFORE RENDERING
     const hobbiesEls = props.hobbies.map(hobby => hobby ? <li key={nanoid()}>{hobby}</li> : "")
     const formattedBirthday = props.birthday ? formatDate(props.birthday) : "Unknown"
-    // const giftEls = props.ideas.map(idea => (
-    //     <div className="gift" key={nanoid()}>
-    //         <h5>{idea.idea}</h5>
-    //         <p>{idea.comments}</p>
-    //         <div>{idea.url}</div>
-    //     </div>
-    // ))
+    const giftEls = gifts.map(idea => (
+        <div className="gift" key={nanoid()}>
+            <h5>{idea.gift}</h5>
+            <p>{idea.comments}</p>
+            <div>{idea.url}</div>
+            <div class="imagearea">{idea.image}</div>
+        </div>
+    ))
 
     const [formData, setFormData] = useState(
         {
@@ -27,6 +33,7 @@ function Note(props) {
             gift: "",
             comments: "",
             url: "",
+            image: ""
         }
     )
 
@@ -34,16 +41,41 @@ function Note(props) {
         const {name, value} = event.target
 
         setFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: value
-            }
+            
+                return {
+                    ...prevFormData,
+                    [name]: value
+                }
+            
         })
     }
 
 
-    
-    
+    const [imageSrc, setImageSrc] = useState(localStorage.getItem("theImage"));
+  
+  function handleFileChange(event) {
+    const fileInput = event.target;
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+
+    reader.onload = function(e) {
+      const img = new Image();
+      img.src = reader.result;
+      localStorage.setItem("theImage", reader.result); //stores the image to localStorage
+      setImageSrc(reader.result);
+    }
+
+    reader.readAsDataURL(file);
+
+    const {name} = event.target
+    setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: imageSrc
+            }
+        })
+    }
+
     return(
         <div className={`note-container`} id={props.elId}>
             <i class={`fa-solid fa-trash ${isHidden ? "hidden" : ""}`} onClick={props.deleteNote}></i>
@@ -57,9 +89,6 @@ function Note(props) {
                 <h4>Hobbies:</h4>
                 <ul>
                     {hobbiesEls}
-                    {/* <li>{props.hobby1}</li>
-                    <li>{props.hobby2}</li>
-                    <li>{props.hobby3}</li> */}
                 </ul>
                 </div>
             </div>
@@ -67,7 +96,7 @@ function Note(props) {
             <div className={`gifts-container ${isHidden ? "hidden" : ""}`}>
                 <h4>Gift ideas:</h4>
                 <div className="gifts">
-                    {/* {giftEls} */}
+                    {giftEls}
                     <form>
                         <fieldset>
                             <legend>New gift idea:</legend>
@@ -108,7 +137,7 @@ function Note(props) {
                                 id="image-input"
                                 type="file"
                                 // placeholder="Link"
-                                onChange={handleChange}
+                                onChange={handleFileChange}
                                 name="image"
                             />
                        </fieldset>
