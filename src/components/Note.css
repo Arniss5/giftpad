@@ -84,30 +84,84 @@
     margin: .3em .5em;
 }
 
+.gifts {
+    margin: 1em 0;
+}
+
 .gift {
     box-shadow: 0px 2px 3px 0px #192d3350;
     padding-bottom: 1em;
     background-color: rgb(240, 240, 240);
-    padding: .8em .5em;
+    padding: .8em .8em;
     margin: .5em;
+    
     /* font-size: .7rem; */
 }
 .gift h5 {
     font-size: 1.2rem;
+    width: fit-content;
     margin: 0;
+    padding: .1em .2em;
+    color: #3E7080;
+    text-transform: capitalize;
+    border-bottom: 3px solid #3E7080;
+
 }
 
 .gift p {
     font-size: 1rem;
-    
+    color: #2b3d42;
 }
 
+.gift a{
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+.gift a:visited {
+    color: #f7624c;
+}
+
+ 
 .gifts form,
 .gifts fieldset {
     display: flex;
     flex-direction: column;
     width: 90%;
     margin: auto;
+}
+
+
+
+.fa-circle-plus,
+.fa-circle-minus {
+    font-size: 2.2rem;
+    color: #ff735c;
+    display: block;
+    width: fit-content;
+    padding: .2em 1em;
+    margin-left: auto;
+}
+
+.fa-circle-plus:hover,
+.fa-circle-minus:hover {
+    color: #f7624c;
+    cursor: pointer;
+}
+
+.gifts form {
+    margin-top: 2em;
+    height: 0;
+    overflow: hidden;
+    /* transform-origin: top; */
+    transition: opacity 1s;
+    opacity: 0; /* make the element invisible */
+}
+
+.gifts form.extended {
+    opacity: 1;
+    height: auto;
+    transition: opacity 1s;
 }
 
 .gifts fieldset {
@@ -173,6 +227,7 @@
     background-color: #f7624c;
     transform: scale(1.02);
 }
+
 
 @media (min-width: 1100px) {
     .note-container {

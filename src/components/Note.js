@@ -7,12 +7,13 @@ function Note(props) {
 
     // EXPAND CARD?
     const [isHidden, setIsHidden] = useState(true);
+    const [isExtended, setIsExtended] = useState(false)
     
     const [gifts, setGifts] = useState([{
         elId: nanoid(),
         gift: "warhammer",
         comments: "whatever",
-        url: "www.dupa.com",
+        url: "https://www.google.com",
     }])
 
     // FORMAT PROPS BEFORE RENDERING
@@ -23,8 +24,8 @@ function Note(props) {
             
             <h5>{idea.gift}</h5>
             <p>{idea.comments}</p>
-            <div>{idea.url}</div>
-            <div class="imagearea">{idea.image}</div>
+            {idea.url && <a href={idea.url} target="_blank"><i class="fa-solid fa-link"></i> See here</a>}
+            {/* <div class="imagearea">{idea.image}</div> */}
         </div>
     ))
 
@@ -72,27 +73,31 @@ function Note(props) {
 
     const [imageSrc, setImageSrc] = useState(localStorage.getItem("theImage"));
   
-  function handleFileChange(event) {
-    const fileInput = event.target;
-    const file = fileInput.files[0];
-    const reader = new FileReader();
+//   function handleFileChange(event) {
+//     const fileInput = event.target;
+//     const file = fileInput.files[0];
+//     const reader = new FileReader();
 
-    reader.onload = function(e) {
-      const img = new Image();
-      img.src = reader.result;
-      localStorage.setItem("theImage", reader.result); //stores the image to localStorage
-      setImageSrc(reader.result);
-    }
+//     reader.onload = function(e) {
+//       const img = new Image();
+//       img.src = reader.result;
+//       localStorage.setItem("theImage", reader.result); //stores the image to localStorage
+//       setImageSrc(reader.result);
+//     }
 
-    reader.readAsDataURL(file);
+//     reader.readAsDataURL(file);
 
-    const {name} = event.target
-    setFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: imageSrc
-            }
-        })
+    // const {name} = event.target
+    // setFormData(prevFormData => {
+    //         return {
+    //             ...prevFormData,
+    //             [name]: imageSrc
+    //         }
+    //     })
+    // }
+    console.log(isExtended)
+    function toggleExtend() {
+        setIsExtended(prevState => !prevState)
     }
 
     return(
@@ -116,7 +121,10 @@ function Note(props) {
                 <h4> <i class="fa-solid fa-gift"></i> Gift ideas:</h4>
                 <div className="gifts">
                     {giftEls}
-                    <form onSubmit={addGiftIdea}>
+                    
+                    <i class={`fa-solid ${isExtended? "fa-circle-minus" : "fa-circle-plus"}`} onClick={toggleExtend}></i>
+
+                    <form onSubmit={addGiftIdea} className={isExtended ? "extended" : ""}>
                         <fieldset>
                             <legend>New gift idea:</legend>
                             <label htmlFor="name-input">Gift:</label>
@@ -151,14 +159,14 @@ function Note(props) {
                                 name="url"
                             />
 
-                            <label htmlFor="image-input" className="customUploadBtn">Image: <br></br> <i class="fas fa-upload"></i> Choose file</label>
+                            {/* <label htmlFor="image-input" className="customUploadBtn">Image: <br></br> <i class="fas fa-upload"></i> Choose file</label>
                             <input
                                 id="image-input"
                                 type="file"
                                 // placeholder="Link"
                                 onChange={handleFileChange}
                                 name="image"
-                            />
+                            /> */}
                        </fieldset>
                         <button>Add gift</button>
                     </form>
