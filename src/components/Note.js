@@ -8,7 +8,7 @@ function Note(props) {
     // EXPAND CARD?
     const [isHidden, setIsHidden] = useState(true);
     
-    const [gifts, setGift] = useState([{
+    const [gifts, setGifts] = useState([{
         elId: nanoid(),
         gift: "warhammer",
         comments: "whatever",
@@ -41,13 +41,31 @@ function Note(props) {
         const {name, value} = event.target
 
         setFormData(prevFormData => {
-            
                 return {
                     ...prevFormData,
                     [name]: value
                 }
             
         })
+    }
+
+    function addGiftIdea(e) {
+        
+            e.preventDefault()
+            setGifts(prevGifts => (
+                [
+                    ...prevGifts,
+                    formData
+                ]
+            ))
+            setFormData({
+                elId: nanoid(),
+                gift: "",
+                comments: "",
+                url: "",
+                image: ""
+            })
+       
     }
 
 
@@ -97,7 +115,7 @@ function Note(props) {
                 <h4>Gift ideas:</h4>
                 <div className="gifts">
                     {giftEls}
-                    <form>
+                    <form onSubmit={addGiftIdea}>
                         <fieldset>
                             <legend>New gift idea:</legend>
                             <label htmlFor="name-input">Gift:</label>
