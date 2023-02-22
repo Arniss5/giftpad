@@ -20,6 +20,7 @@ function Note(props) {
     const formattedBirthday = props.birthday ? formatDate(props.birthday) : "Unknown"
     const giftEls = gifts.map(idea => (
         <div className="gift" key={nanoid()}>
+            
             <h5>{idea.gift}</h5>
             <p>{idea.comments}</p>
             <div>{idea.url}</div>
@@ -101,10 +102,10 @@ function Note(props) {
                 
                 <div className="header-el" onClick={() => setIsHidden(!isHidden)} >
                     <h3>{props.name}</h3>   
-                    <p><strong>Birthday:</strong> {formattedBirthday}</p>
+                    <p> <i class="fa-solid fa-cake-candles"></i>   {formattedBirthday}</p>
                 </div>
                 <div className={`hobbies ${isHidden ? "hidden" : ""}`}>
-                <h4>Hobbies:</h4>
+                <h4> <i class="fa-solid fa-palette"></i> Hobbies:</h4>
                 <ul>
                     {hobbiesEls}
                 </ul>
@@ -112,7 +113,7 @@ function Note(props) {
             </div>
             
             <div className={`gifts-container ${isHidden ? "hidden" : ""}`}>
-                <h4>Gift ideas:</h4>
+                <h4> <i class="fa-solid fa-gift"></i> Gift ideas:</h4>
                 <div className="gifts">
                     {giftEls}
                     <form onSubmit={addGiftIdea}>
