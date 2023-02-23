@@ -6,6 +6,29 @@ import { nanoid } from "nanoid";
 
 
 function GiftNotes() {
+
+    const [notes, setNotes] = useState(localStorage.getItem("notes") == null? [
+        {
+            elId: nanoid(),
+            name: "Kasia",
+            hobby1: "coding",
+            hobby2: "films",
+            hobby3: "boardgames",
+            birthday: "1991-03-16",
+            ideas: []
+        },
+        {
+            elId: nanoid(),
+            name: "Ross",
+            hobby1: "warhammer",
+            hobby2: "magic",
+            hobby3: "video games",
+            birthday: "1991-02-01",
+            ideas: []
+        }
+    ] : JSON.parse(localStorage.getItem("notes")))
+
+
     const [isHidden, setIsHidden] = useState(true);
     const [formData, setFormData] = useState(
         {
@@ -30,29 +53,10 @@ function GiftNotes() {
         })
     }
 
+    console.log(localStorage.getItem("notes"))
 
 
-    const [notes, setNotes] = useState(localStorage.getItem("notes") === null? `[
-        {
-            elId: nanoid(),
-            name: "Kasia",
-            hobby1: "coding",
-            hobby2: "films",
-            hobby3: "boardgames",
-            birthday: "1991-03-16",
-            ideas: []
-        },
-        {
-            elId: nanoid(),
-            name: "Ross",
-            hobby1: "warhammer",
-            hobby2: "magic",
-            hobby3: "video games",
-            birthday: "1991-02-01",
-            ideas: []
-        }
-    ]` : JSON.parse(localStorage.getItem("notes")))
-
+    // console.log(notes)
 
     useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notes))
