@@ -64,11 +64,10 @@ function GiftNotes() {
             elId={note.elId}
             name={note.name}
             hobbies={[note.hobby1, note.hobby2, note.hobby3]}
-            hobby2={note.hobby2}
-            hobby3={note.hobby3}
             birthday={note.birthday}
             ideas={note.ideas}
             deleteNote={deleteNote}
+            setNotes ={setNotes}
         />
     })
 

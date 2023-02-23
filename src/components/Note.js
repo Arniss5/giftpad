@@ -9,12 +9,14 @@ function Note(props) {
     const [isHidden, setIsHidden] = useState(true);
     const [isExtended, setIsExtended] = useState(false)
     
-    const [gifts, setGifts] = useState([{
-        elId: nanoid(),
-        gift: "warhammer",
-        comments: "whatever",
-        url: "https://www.google.com",
-    }])
+    const [gifts, setGifts] = useState(props.ideas)
+
+    // [{
+    //     elId: nanoid(),
+    //     gift: "warhammer",
+    //     comments: "whatever",
+    //     url: "https://www.google.com",
+    // }]
 
     // FORMAT PROPS BEFORE RENDERING
     const hobbiesEls = props.hobbies.map(hobby => hobby ? <li key={nanoid()}>{hobby}</li> : "")
@@ -52,14 +54,23 @@ function Note(props) {
     }
 
     function addGiftIdea(e) {
-        
-            e.preventDefault()
-            setGifts(prevGifts => (
-                [
-                    ...prevGifts,
-                    formData
-                ]
-            ))
+        e.preventDefault()
+            props.setNotes(prevState => {
+                return prevState.map(giftNote => {
+                    if(e.target.dataset.note == giftNote.elId) {
+                        return {
+                            ...giftNote,
+                            ideas: [
+                                ...giftNote.ideas,
+                                formData
+                            ]
+                        }
+                    } else {
+                        return giftNote
+                    }
+                })
+                
+            })
             setFormData({
                 elId: nanoid(),
                 gift: "",
@@ -67,11 +78,11 @@ function Note(props) {
                 url: "",
                 image: ""
             })
-       
+        //    setIsHidden(prevState => !prevState)
     }
 
-
-    const [imageSrc, setImageSrc] = useState(localStorage.getItem("theImage"));
+    console.log(isHidden)
+    // const [imageSrc, setImageSrc] = useState(localStorage.getItem("theImage"));
   
 //   function handleFileChange(event) {
 //     const fileInput = event.target;
@@ -95,9 +106,12 @@ function Note(props) {
     //         }
     //     })
     // }
-    console.log(isExtended)
+    
     function toggleExtend() {
         setIsExtended(prevState => !prevState)
+    }
+    function toggleHidden() {
+        setIsHidden(prevState => !prevState)
     }
 
     return(
@@ -105,7 +119,7 @@ function Note(props) {
             <i class={`fa-solid fa-trash ${isHidden ? "hidden" : ""}`} onClick={props.deleteNote}></i>
             <div className="info" >
                 
-                <div className="header-el" onClick={() => setIsHidden(!isHidden)} >
+                <div className="header-el" onClick={toggleHidden} >
                     <h3>{props.name}</h3>   
                     <p> <i class="fa-solid fa-cake-candles"></i>   {formattedBirthday}</p>
                 </div>
@@ -124,7 +138,7 @@ function Note(props) {
                     
                     <i class={`fa-solid ${isExtended? "fa-circle-minus" : "fa-circle-plus"}`} onClick={toggleExtend}></i>
 
-                    <form onSubmit={addGiftIdea} className={isExtended ? "extended" : ""}>
+                    <form data-note={props.elId} onSubmit={addGiftIdea} className={isExtended ? "extended" : ""}>
                         <fieldset>
                             <legend>New gift idea:</legend>
                             <label htmlFor="name-input">Gift:</label>
