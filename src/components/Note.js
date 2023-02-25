@@ -8,14 +8,12 @@ function Note(props) {
     // STATES
     // 'add gift idea' display setting
     const [isExtended, setIsExtended] = useState(false)
-    
-    const [gifts, setGifts] = useState(props.ideas)
 
 
     // FORMAT PROPS BEFORE RENDERING
     const hobbiesEls = props.hobbies.map(hobby => hobby ? <li key={nanoid()}>{hobby}</li> : "")
     const formattedBirthday = props.birthday ? formatDate(props.birthday) : "Unknown"
-    const giftEls = gifts.map(idea => (
+    const giftEls = props.ideas.map(idea => (
         <div className="gift" key={nanoid()} id={idea.elId} >
             <i class="fa-solid fa-xmark" onClick={removeGiftIdea} data-gift={props.elId}></i>
             <h5>{idea.gift}</h5>
@@ -78,22 +76,16 @@ function Note(props) {
         props.setNotes(prevState => {
             return prevState.map(giftNote => {
                 // find the note you need
-
-                if(e.target.dataset.gift  == giftNote.elId) {
-                    // console.log(giftNote.ideas)
-                    // const gifts = giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id).length = 0 ? [] : giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id).length = 0
-                    // console.log(giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id))
+                if(e.target.dataset.gift == giftNote.elId) {
                     return {
                         ...giftNote,
                         ideas: giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id) 
-                        // ideas: []
                     }
                 } else {
                     return giftNote
                 }
             })
         })
-        // console.log(props.notes)
     }
 
     

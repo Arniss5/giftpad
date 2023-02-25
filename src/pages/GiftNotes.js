@@ -15,7 +15,20 @@ function GiftNotes() {
             hobby2: "films",
             hobby3: "boardgames",
             birthday: "1991-03-16",
-            ideas: [],
+            ideas: [
+                {
+                    elId: nanoid(),
+                    gift: "shoes",
+                    comments: "Supper pretty shoes that I saw in CCC last time I was in Poland. They cost 139PLN",
+                    url: "https://www.google.com",
+                },
+                {
+                    elId: nanoid(),
+                    gift: "Hogwards Legacy",
+                    comments: "That PC game that's just come out. Would be a good bday idea. Can be bought on Amazon (see link) or in GAME",
+                    url: "https://www.amazon.com",
+                }
+            ],
             isHidden: true
         },
         {
@@ -24,7 +37,7 @@ function GiftNotes() {
             hobby1: "warhammer",
             hobby2: "magic",
             hobby3: "video games",
-            birthday: "1991-02-01",
+            birthday: "1991-01-02",
             ideas: [{
                     elId: nanoid(),
                     gift: "warhammer",
