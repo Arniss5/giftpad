@@ -1,12 +1,12 @@
 import React, {useEffect, useState} from "react";
 import "./GiftNotes.css"
 import Note from "../components/Note";
-
 import { nanoid } from "nanoid";
 
 
 function GiftNotes() {
 
+    // STATES & EFFECTS
     const [notes, setNotes] = useState(localStorage.getItem("notes") == null? [
         {
             elId: nanoid(),
@@ -31,7 +31,7 @@ function GiftNotes() {
     ] : JSON.parse(localStorage.getItem("notes")))
 
 
-    const [isHidden, setIsHidden] = useState(true);
+    // Add note form
     const [formData, setFormData] = useState(
         {
             elId: nanoid(),
@@ -43,25 +43,12 @@ function GiftNotes() {
             ideas: []
         }
     )
-
-    function handleChange(event) {
-        const {name, value} = event.target
-
-        setFormData(prevFormData => {
-            return {
-                ...prevFormData,
-                [name]: value
-            }
-        })
-    }
-
+    
+    // Add note element display settings
+    const [isHidden, setIsHidden] = useState(true);
     
 
-    // console.log(localStorage.getItem("notes"))
-
-
-    // console.log(notes)
-
+    // Get list of notes from Storage
     useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(notes))
       }, [notes]);
@@ -81,6 +68,21 @@ function GiftNotes() {
         />
     })
 
+
+// METHODS
+
+    // Get info from user input in form
+    function handleChange(event) {
+        const {name, value} = event.target
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: value
+            }
+        })
+    }
+
+    // Handle notes
     function addNote(e) {
         e.preventDefault()
         setNotes(prevNotes => (
@@ -106,6 +108,7 @@ function GiftNotes() {
         })
     }
 
+    // Shrink/extend 'Add new note' element on small screens
     function toggleHiddenNote(e) {
         setNotes(prevNotes => {
             return prevNotes.map(note => {
@@ -121,22 +124,6 @@ function GiftNotes() {
         })
     }
     
-
-    // useEffect(() => {
-    //     notesEl = notes.map(note => {
-    //         return <Note 
-    //             name={note.name}
-    //             hobbies={note.hobbies}
-    //             birthday={note.birthday}
-    //             ideas={note.ideas}
-    //             active={note.active}
-    //             display="display"
-    //             extended=""
-    //             handleClick={handleClick}
-    //         />
-    //     })
-    // }, [notes])
-
 
     return(
         <>
@@ -189,11 +176,11 @@ function GiftNotes() {
                             value={formData.hobby3}
                         />
                     </fieldset>
-                    <button type="submit" className="add-btn" >ADD</button>
+                    <button type="submit" className="add-note-btn">ADD</button>
                 </form>
             </div>
             <div className="notes">
-                
+                {/* RENDER NOTES HERE */}
                 {notesEl}
             </div>
         </div>
