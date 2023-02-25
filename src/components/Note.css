@@ -94,9 +94,24 @@
     background-color: rgb(240, 240, 240);
     padding: .8em .8em;
     margin: .5em;
-    
+    position: relative;
     /* font-size: .7rem; */
 }
+
+.gift .fa-xmark {
+    font-size: 1.5rem;
+    position: absolute;
+    top: .5em;
+    right: .6em;
+    padding: .3em;
+    transition: transform ease 300ms;
+}
+
+.gift .fa-xmark:hover {
+    cursor: pointer;
+    transform: scale(1.2);
+}
+
 .gift h5 {
     font-size: 1.2rem;
     width: fit-content;
@@ -140,7 +155,7 @@
     display: block;
     width: fit-content;
     padding: .2em 1em;
-    margin-left: auto;
+    margin: auto;
 }
 
 .fa-circle-plus:hover,
@@ -153,15 +168,15 @@
     margin-top: 2em;
     height: 0;
     overflow: hidden;
-    /* transform-origin: top; */
-    transition: opacity 1s;
+    transition: opacity ease-in-out 100ms;
     opacity: 0; /* make the element invisible */
+    padding: 3%;
 }
 
 .gifts form.extended {
     opacity: 1;
     height: auto;
-    transition: opacity 1s;
+    transition: opacity ease 1s;
 }
 
 .gifts fieldset {
@@ -182,6 +197,7 @@
     border-radius: 20px;
     padding: .5em;
     margin: .3em 0 .6em 0;
+    width: 90%;
 }
 
 .gifts form input:focus,
@@ -231,24 +247,11 @@
 
 @media (min-width: 1100px) {
     .note-container {
-        /* width: calc(50% - 1em); */
         margin-right: auto;
     }
     .note-container.expanded {
-        /* width: 100%; */
         display: flex;
         justify-content: space-between;
     }
 
-    /* .note-container.expanded .info {
-        width: 40%;
-    }
-    .note-container.expanded .gifts-container {
-        width: 60%;
-    } */
-
-
-    /* .note {
-        width: 100%;
-    } */
 }

@@ -5,29 +5,22 @@ import { nanoid } from "nanoid";
 
 function Note(props) {
 
-    // EXPAND CARD?
-    // const [isHidden, setIsHidden] = useState(true);
+    // STATES
+    // 'add gift idea' display setting
     const [isExtended, setIsExtended] = useState(false)
     
     const [gifts, setGifts] = useState(props.ideas)
 
-    // [{
-    //     elId: nanoid(),
-    //     gift: "warhammer",
-    //     comments: "whatever",
-    //     url: "https://www.google.com",
-    // }]
 
     // FORMAT PROPS BEFORE RENDERING
     const hobbiesEls = props.hobbies.map(hobby => hobby ? <li key={nanoid()}>{hobby}</li> : "")
     const formattedBirthday = props.birthday ? formatDate(props.birthday) : "Unknown"
     const giftEls = gifts.map(idea => (
-        <div className="gift" key={nanoid()}>
-            
+        <div className="gift" key={nanoid()} id={idea.elId} >
+            <i class="fa-solid fa-xmark" onClick={removeGiftIdea} data-gift={props.elId}></i>
             <h5>{idea.gift}</h5>
             <p>{idea.comments}</p>
             {idea.url && <a href={idea.url} target="_blank"><i class="fa-solid fa-link"></i> See here</a>}
-            {/* <div class="imagearea">{idea.image}</div> */}
         </div>
     ))
 
@@ -78,41 +71,36 @@ function Note(props) {
                 url: "",
                 image: ""
             })
-        //    setIsHidden(prevState => !prevState)
     }
 
-    // console.log(props.isNoteHidden)
-    // const [imageSrc, setImageSrc] = useState(localStorage.getItem("theImage"));
-  
-//   function handleFileChange(event) {
-//     const fileInput = event.target;
-//     const file = fileInput.files[0];
-//     const reader = new FileReader();
+    function removeGiftIdea(e) {
+        // set entire note
+        props.setNotes(prevState => {
+            return prevState.map(giftNote => {
+                // find the note you need
 
-//     reader.onload = function(e) {
-//       const img = new Image();
-//       img.src = reader.result;
-//       localStorage.setItem("theImage", reader.result); //stores the image to localStorage
-//       setImageSrc(reader.result);
-//     }
+                if(e.target.dataset.gift  == giftNote.elId) {
+                    // console.log(giftNote.ideas)
+                    // const gifts = giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id).length = 0 ? [] : giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id).length = 0
+                    // console.log(giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id))
+                    return {
+                        ...giftNote,
+                        ideas: giftNote.ideas.filter(idea => idea.elId !== e.target.parentElement.id) 
+                        // ideas: []
+                    }
+                } else {
+                    return giftNote
+                }
+            })
+        })
+        // console.log(props.notes)
+    }
 
-//     reader.readAsDataURL(file);
-
-    // const {name} = event.target
-    // setFormData(prevFormData => {
-    //         return {
-    //             ...prevFormData,
-    //             [name]: imageSrc
-    //         }
-    //     })
-    // }
     
     function toggleExtend() {
         setIsExtended(prevState => !prevState)
     }
-    // function toggleHidden() {
-    //     setIsHidden(prevState => !prevState)
-    // }
+
 
     return(
         <div className={`note-container`} id={props.elId}>
@@ -133,7 +121,7 @@ function Note(props) {
             
             <div className={`gifts-container ${props.isNoteHidden ? "hidden" : ""}`}>
                 <h4> <i class="fa-solid fa-gift"></i> Gift ideas:</h4>
-                <div className="gifts">
+                <div className="gifts" >
                     {giftEls}
                     
                     <i class={`fa-solid ${isExtended? "fa-circle-minus" : "fa-circle-plus"}`} onClick={toggleExtend}></i>
@@ -145,7 +133,6 @@ function Note(props) {
                             <input
                                 id="gift-input"
                                 type="text"
-                                // placeholder="Gift idea"
                                 onChange={handleChange}
                                 name="gift"
                                 value={formData.gift}

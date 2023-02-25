@@ -25,7 +25,12 @@ function GiftNotes() {
             hobby2: "magic",
             hobby3: "video games",
             birthday: "1991-02-01",
-            ideas: [],
+            ideas: [{
+                    elId: nanoid(),
+                    gift: "warhammer",
+                    comments: "whatever",
+                    url: "https://www.google.com",
+                }],
             isHidden: true
         }
     ] : JSON.parse(localStorage.getItem("notes")))
@@ -58,6 +63,7 @@ function GiftNotes() {
             key={nanoid()}
             elId={note.elId}
             name={note.name}
+            notes={notes}
             hobbies={[note.hobby1, note.hobby2, note.hobby3]}
             birthday={note.birthday}
             ideas={note.ideas}
