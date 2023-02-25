@@ -95,6 +95,8 @@
     padding: .8em .8em;
     margin: .5em;
     position: relative;
+    color: #3E7080;
+    
     /* font-size: .7rem; */
 }
 
@@ -116,10 +118,10 @@
     font-size: 1.2rem;
     width: fit-content;
     margin: 0;
-    padding: .1em .2em;
-    color: #3E7080;
+    /* padding: .1em .2em; */
+    
     text-transform: capitalize;
-    border-bottom: 3px solid #3E7080;
+    /* border-bottom: 3px solid #3E7080; */
 
 }
 
@@ -208,21 +210,6 @@
 
 #image-input {
     display: none;
-}
-
-.customUploadBtn i {
-    font-size: 1.5rem;
-    padding: .5em;
-    margin: .2em;
-    background-color: #3E7080;
-    color: #e8f1f5;
-    cursor: pointer;
-    border-radius: 50%;
-}
-
-.customUploadBtn i:hover,
-.customUploadBtn i:focus {
-    background-color: #192D33;
 }
 
 
