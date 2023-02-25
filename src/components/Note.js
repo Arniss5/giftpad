@@ -6,7 +6,7 @@ import { nanoid } from "nanoid";
 function Note(props) {
 
     // EXPAND CARD?
-    const [isHidden, setIsHidden] = useState(true);
+    // const [isHidden, setIsHidden] = useState(true);
     const [isExtended, setIsExtended] = useState(false)
     
     const [gifts, setGifts] = useState(props.ideas)
@@ -81,7 +81,7 @@ function Note(props) {
         //    setIsHidden(prevState => !prevState)
     }
 
-    console.log(isHidden)
+    // console.log(props.isNoteHidden)
     // const [imageSrc, setImageSrc] = useState(localStorage.getItem("theImage"));
   
 //   function handleFileChange(event) {
@@ -110,20 +110,20 @@ function Note(props) {
     function toggleExtend() {
         setIsExtended(prevState => !prevState)
     }
-    function toggleHidden() {
-        setIsHidden(prevState => !prevState)
-    }
+    // function toggleHidden() {
+    //     setIsHidden(prevState => !prevState)
+    // }
 
     return(
         <div className={`note-container`} id={props.elId}>
-            <i class={`fa-solid fa-trash ${isHidden ? "hidden" : ""}`} onClick={props.deleteNote}></i>
-            <div className="info" >
+            <i class={`fa-solid fa-trash ${props.isNoteHidden ? "hidden" : ""}`} onClick={props.deleteNote}></i>
+            <div className="info" onClick={props.toggleHiddenNote}>
                 
-                <div className="header-el" onClick={toggleHidden} >
+                <div className="header-el"  >
                     <h3>{props.name}</h3>   
                     <p> <i class="fa-solid fa-cake-candles"></i>   {formattedBirthday}</p>
                 </div>
-                <div className={`hobbies ${isHidden ? "hidden" : ""}`}>
+                <div className={`hobbies ${props.isNoteHidden ? "hidden" : ""}`}>
                 <h4> <i class="fa-solid fa-palette"></i> Hobbies:</h4>
                 <ul>
                     {hobbiesEls}
@@ -131,7 +131,7 @@ function Note(props) {
                 </div>
             </div>
             
-            <div className={`gifts-container ${isHidden ? "hidden" : ""}`}>
+            <div className={`gifts-container ${props.isNoteHidden ? "hidden" : ""}`}>
                 <h4> <i class="fa-solid fa-gift"></i> Gift ideas:</h4>
                 <div className="gifts">
                     {giftEls}

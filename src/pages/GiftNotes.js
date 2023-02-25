@@ -15,7 +15,8 @@ function GiftNotes() {
             hobby2: "films",
             hobby3: "boardgames",
             birthday: "1991-03-16",
-            ideas: []
+            ideas: [],
+            isHidden: true
         },
         {
             elId: nanoid(),
@@ -24,7 +25,8 @@ function GiftNotes() {
             hobby2: "magic",
             hobby3: "video games",
             birthday: "1991-02-01",
-            ideas: []
+            ideas: [],
+            isHidden: true
         }
     ] : JSON.parse(localStorage.getItem("notes")))
 
@@ -53,7 +55,9 @@ function GiftNotes() {
         })
     }
 
-    console.log(localStorage.getItem("notes"))
+    
+
+    // console.log(localStorage.getItem("notes"))
 
 
     // console.log(notes)
@@ -72,6 +76,8 @@ function GiftNotes() {
             ideas={note.ideas}
             deleteNote={deleteNote}
             setNotes ={setNotes}
+            toggleHiddenNote={toggleHiddenNote}
+            isNoteHidden={note.isNoteHidden}
         />
     })
 
@@ -100,6 +106,20 @@ function GiftNotes() {
         })
     }
 
+    function toggleHiddenNote(e) {
+        setNotes(prevNotes => {
+            return prevNotes.map(note => {
+                if(e.target.parentElement.parentElement.id == note.elId) {
+                    return {
+                        ...note,
+                        isNoteHidden:!note.isNoteHidden
+                    }
+                } else {
+                    return note
+                }
+            })
+        })
+    }
     
 
     // useEffect(() => {
