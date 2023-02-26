@@ -8,6 +8,7 @@ import WelcomePage from './pages/WelcomePage'
 import Main from './pages/Main'
 import GiftNotes from './pages/GiftNotes'
 import GiftIdeas from './pages/GiftIdeas'
+import Dates from './pages/Dates'
 import { Context } from "./Context";
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           {/* <Route exact path='/main' element={<Main />}/> */}
           <Route exact path='/gift-notes' element={<GiftNotes />}/>
           <Route exact path='/gift-ideas' element={<GiftIdeas />}/>
+          <Route exact path='/dates' element={<Dates />}/>
         </Routes>
       </div>
       <Footer />

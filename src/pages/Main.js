@@ -13,9 +13,9 @@ function Main() {
             <h2>MENU</h2>
             <div class="parent">
                 <Link to="/gift-notes"><div class="main-btn gift-notes">Gift notes</div></Link>
-                <div class="main-btn dates">Dates</div>
+                <Link to="/dates"><div class="main-btn dates">Dates</div></Link>
                 <div class="main-btn change-pin" onClick={context.resetPin}>change PIN</div>
-                <div class="main-btn ideas">Gift ideas</div>
+                <Link to="/gift-ideas"><div class="main-btn ideas">Gift ideas</div></Link>
             </div> 
         </div>
     )
