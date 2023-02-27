@@ -6,7 +6,9 @@ import { nanoid } from "nanoid";
 
 function Dates() {
     return(
-        <div></div>
+        <div className="dates-container">
+            <h2>Dates to remember</h2>
+        </div>
     )
 }
 

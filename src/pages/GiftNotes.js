@@ -6,6 +6,7 @@ import { nanoid } from "nanoid";
 
 function GiftNotes() {
 
+    const notesImage = <img src="../images/notes.jpg"></img>
     // STATES & EFFECTS
     const [notes, setNotes] = useState(localStorage.getItem("notes") == null? [
         {
@@ -131,7 +132,7 @@ function GiftNotes() {
     function toggleHiddenNote(e) {
         setNotes(prevNotes => {
             return prevNotes.map(note => {
-                if(e.target.parentElement.parentElement.id == note.elId) {
+                if(e.target.parentElement.parentElement.id === note.elId) {
                     return {
                         ...note,
                         isNoteHidden:!note.isNoteHidden
@@ -200,7 +201,14 @@ function GiftNotes() {
             </div>
             <div className="notes">
                 {/* RENDER NOTES HERE */}
-                {notesEl}
+                {notes.length === 0 ? 
+                    <img 
+                        src={require("../images/notes.jpg")} 
+                        alt="a cartoon person writing in a notepad" 
+                        className="panel panel-img" 
+                    /> :
+                    notesEl
+                }
             </div>
         </div>
         </>
