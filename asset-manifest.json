@@ -1,16 +1,18 @@
 {
   "files": {
-    "main.css": "/giftpad/static/css/main.073c9b0a.css",
-    "main.js": "/giftpad/static/js/main.306938de.js",
-    "static/js/787.03797368.chunk.js": "/giftpad/static/js/787.03797368.chunk.js",
-    "static/media/logo.svg": "/giftpad/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
+    "main.css": "/giftpad/static/css/main.26185851.css",
+    "main.js": "/giftpad/static/js/main.90eb7312.js",
+    "static/media/88280.jpg": "/giftpad/static/media/88280.b90c724f34459a256b97.jpg",
+    "static/media/88280orange.jpg": "/giftpad/static/media/88280orange.3a2a8979f0e25ae3f868.jpg",
+    "static/media/giftshop.png": "/giftpad/static/media/giftshop.c25bcbacc09c2e2303e9.png",
+    "static/media/dates.png": "/giftpad/static/media/dates.9215f7e039c77c3dac2f.png",
+    "static/media/notes.jpg": "/giftpad/static/media/notes.70f46d8b4074bda1abd6.jpg",
     "index.html": "/giftpad/index.html",
-    "main.073c9b0a.css.map": "/giftpad/static/css/main.073c9b0a.css.map",
-    "main.306938de.js.map": "/giftpad/static/js/main.306938de.js.map",
-    "787.03797368.chunk.js.map": "/giftpad/static/js/787.03797368.chunk.js.map"
+    "main.26185851.css.map": "/giftpad/static/css/main.26185851.css.map",
+    "main.90eb7312.js.map": "/giftpad/static/js/main.90eb7312.js.map"
   },
   "entrypoints": [
-    "static/css/main.073c9b0a.css",
-    "static/js/main.306938de.js"
+    "static/css/main.26185851.css",
+    "static/js/main.90eb7312.js"
   ]
 }
