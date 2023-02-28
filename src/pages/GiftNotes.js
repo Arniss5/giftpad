@@ -6,7 +6,6 @@ import { nanoid } from "nanoid";
 
 function GiftNotes() {
 
-    const notesImage = <img src="../images/notes.jpg"></img>
     // STATES & EFFECTS
     const [notes, setNotes] = useState(localStorage.getItem("notes") == null? [
         {
