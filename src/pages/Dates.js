@@ -23,14 +23,14 @@ function Dates() {
         }
     )
     
-    console.log(formData)
+    // console.log(formData)
 
     useEffect(() => {
         fetchData()
-    }, [])
+    }, [formData])
 
     const fetchData = () => {
-        fetch(`https://calendarific.com/api/v2/holidays?&api_key=${apiKey}&country=GB&year=2023&month=3`)
+        fetch(`https://calendarific.com/api/v2/holidays?&api_key=${apiKey}&country=GB&year=${formData.year}&month=${formData.month}`)
         .then(response => response.json())
         .then(data => setHolidays(data))
         .catch(error => console.log(error));
@@ -47,10 +47,12 @@ function Dates() {
         })
     }
 
-    // console.log(holidays)
+    console.log(holidays)
     return(
         <div className="dates-container">
+            
             <h2>Dates to remember</h2>
+            <div className="columns">
             <div className="form-container">
                 <select id="month-input" value={formData.month} onChange={handleChange} name="month">
                     <option value="1">January</option>
@@ -84,7 +86,7 @@ function Dates() {
                 <div className="birthdays"></div>
                 <div className="celebrations"></div>
             </div>
-
+            </div>
             
         </div>
     )
