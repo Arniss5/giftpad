@@ -9,7 +9,6 @@ function Header() {
 
     const location = useLocation();
     const isCurrentPageMain = location.pathname === "/giftpad";
-    console.log(isCurrentPageMain)
 
     return (
         <header>

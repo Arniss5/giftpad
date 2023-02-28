@@ -1,0 +1,16 @@
+.container {
+    position: relative;
+}
+
+.corner-img {
+    width: 25%;
+    min-width: 250px;
+    position: absolute;
+    bottom: 0;
+}
+
+@media (max-height: 600px) {
+    .corner-img {
+        display: none;
+    }
+}
