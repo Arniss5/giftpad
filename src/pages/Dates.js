@@ -24,7 +24,7 @@ function Dates() {
     };
 
 
-    // console.log(holidays)
+    console.log(holidays)
     return(
         <div className="dates-container">
             <h2>Dates to remember</h2>
