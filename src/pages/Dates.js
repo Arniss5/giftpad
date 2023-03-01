@@ -39,27 +39,77 @@ function Dates() {
         )
     })
 
-    const birthdaysEls = context.notes.map(note => {
-        const [year, month, day] = note.birthday.split('-')
-        console.log(formData.month)
-        console.log(month)
-        if(note.birthday && month === formData.month || month === "0" + formData.month) {
-            
-            const age = currentYear - year
-            console.log(currentYear)
-            return (
-                <Occasion
-                    key={nanoid()}
-                    day={day}
-                    month={month}
-                    name={note.name}
-                    description={`${note.name} is turning ${age}!`}
-                    display=""
-                />
-            )
+    function filterBirthday(objArray) {
+        // Filter the array by matching the month component of the "birthday" property
+        const filteredArray = objArray.filter(obj => {
+            const birthdayMonth = new Date(obj.birthday).getMonth() + 1
+            const birthdayYear = new Date(obj.birthday).getFullYear()
+            // Get rid of "negative" birthdays
+            return birthdayMonth == formData.month && formData.year - birthdayYear > 0
+        })
+        // Sort the filtered array by the day component of the "birthday" property
+        filteredArray.sort((a, b) => {
+            const dayA = new Date(a.birthday).getDate()
+            const dayB = new Date(b.birthday).getDate()
+            return dayA - dayB
+        });
+        return filteredArray;
+    }
+
+    function getBirthdayEls() {
+        const matchingBdays = filterBirthday(context.notes)
+        console.log(matchingBdays)
+        if (matchingBdays.length > 0) {
+            return matchingBdays.map(bday => {
+                const [year, month, day] = bday.birthday.split('-')
+                const age = formData.year - year
+                return (
+                    <Occasion
+                        key={nanoid()}
+                        day={day}
+                        month={month}
+                        name={bday.name}
+                        description={`${bday.name} is turning ${age}!`}
+                        display=""
+                    />
+                )
+            })
+        } else {
+            return <div>No birthdays this month!</div>
         }
         
-    })
+
+    }
+
+    // console.log(context.notes)
+    // console.log(filterBirthday(context.notes))
+    // get notes array of objects
+    // filter those that match currentMonth
+    // sort objects basing on 
+
+    const birthdaysEls = getBirthdayEls()
+
+    // const birthdaysEls = context.notes.map(note => {
+    //     const [year, month, day] = note.birthday.split('-')
+    //     // console.log(formData.month)
+    //     // console.log(month)
+    //     if(note.birthday && month === formData.month || month === "0" + formData.month) {
+            
+    //         const age = currentYear - year
+    //         // console.log(currentYear)
+    //         return (
+    //             <Occasion
+    //                 key={nanoid()}
+    //                 day={day}
+    //                 month={month}
+    //                 name={note.name}
+    //                 description={`${note.name} is turning ${age}!`}
+    //                 display=""
+    //             />
+    //         )
+    //     }
+        
+    // })
     
     // console.log(formData)
 
@@ -85,7 +135,7 @@ function Dates() {
         })
     }
 
-    console.log(holidays)
+    // console.log(holidays)
     return(
         <div className="main-container">
             
