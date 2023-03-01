@@ -4,8 +4,9 @@
 
 .columns {
     display: flex;
-    padding: 2em;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 .form-container {
@@ -37,13 +38,28 @@
     border-radius: .4em;
 }
 
+.dates-container {
+    width: 90%;
+}
+
 
 
 @media (min-width: 750px) {
+    .columns {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 2em;
+        padding: 1em;
+    }
+
     .form-container {
         display: flex;
         flex-direction: column;
-        width: 40%;
+        width: 60%;
+    }
+
+    .dates {
+        margin-right: 2em;
     }
 
     .corner-img {
@@ -52,9 +68,18 @@
 }
 
 @media (min-width: 1200px) {
+    .dates-container {
+        display: flex;
+    }
+
+    .form-container {
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+    }
    
     .corner-img {
         display: block;
-        width: 80%;
+        width: 90%;
     }
 }

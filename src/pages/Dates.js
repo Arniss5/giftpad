@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from "react";
+import Occasion from "../components/Occasion";
 import "./Dates.css"
 import { nanoid } from "nanoid";
 
@@ -22,6 +23,13 @@ function Dates() {
             year: year,
         }
     )
+
+    const occasionEls = holidays.map(holiday => {
+        return (
+            <Occasion />
+        )
+    })
+
     
     // console.log(formData)
 
@@ -32,7 +40,7 @@ function Dates() {
     const fetchData = () => {
         fetch(`https://calendarific.com/api/v2/holidays?&api_key=${apiKey}&country=GB&year=${formData.year}&month=${formData.month}`)
         .then(response => response.json())
-        .then(data => setHolidays(data))
+        .then(data => setHolidays(data.response.holidays))
         .catch(error => console.log(error));
     };
 
@@ -49,7 +57,7 @@ function Dates() {
 
     console.log(holidays)
     return(
-        <div className="dates-container">
+        <div className="main-container">
             
             <h2>Dates to remember</h2>
             <div className="columns">
@@ -83,8 +91,14 @@ function Dates() {
                 />
             </div>
             <div className="dates-container">
-                <div className="birthdays"></div>
-                <div className="celebrations"></div>
+                <div className="dates birthdays">
+                    <Occasion />
+                </div>
+                <div className="dates occasions">
+                    <Occasion />
+                    <Occasion />
+                </div>
+                
             </div>
             </div>
             
