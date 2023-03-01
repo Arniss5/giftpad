@@ -14,12 +14,14 @@
     flex-direction: column;
     width: 100%;
     align-items: center;
+    
 }
 
 .corner-img {
     display: none;
     width: 100%;
     align-self: center;
+    margin-top: 3em;
 }
 
 .form-container select,
@@ -70,6 +72,10 @@
 @media (min-width: 1200px) {
     .dates-container {
         display: flex;
+    }
+
+    .dates {
+        width: 45%;
     }
 
     .form-container {

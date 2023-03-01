@@ -5,10 +5,11 @@
 .date-container {
     position: relative;
     width: 100%;
-    border: 4px #ff8979 solid;
+    min-width: 320px;
+    border: 4px #3E7080 solid;
     border-radius: 1em;
     margin-bottom: 1em;
-    padding: .3em .5em;
+    padding: .3em .65em;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -24,11 +25,12 @@ h4 {
 }
 
 .day {
+    font-size: 1.2rem;
     color: #fff;
     font-weight: 700;
     position: absolute;
-    background-color: #ff8979;
-    padding: 1em;
+    background-color: #3E7080;
+    padding: .8em .5em .5em .8em;
     margin: -.8em;
     border-radius: .3em;
 }

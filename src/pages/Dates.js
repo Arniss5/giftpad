@@ -26,7 +26,13 @@ function Dates() {
 
     const occasionEls = holidays.map(holiday => {
         return (
-            <Occasion />
+            <Occasion
+                key={nanoid()}
+                day={holiday.date.datetime.day}
+                month={holiday.date.datetime.month}
+                name={holiday.name}
+                description={holiday.description}
+            />
         )
     })
 
@@ -62,6 +68,7 @@ function Dates() {
             <h2>Dates to remember</h2>
             <div className="columns">
             <div className="form-container">
+                <h3>Select month:</h3>
                 <select id="month-input" value={formData.month} onChange={handleChange} name="month">
                     <option value="1">January</option>
                     <option value="2">February</option>
@@ -92,11 +99,12 @@ function Dates() {
             </div>
             <div className="dates-container">
                 <div className="dates birthdays">
-                    <Occasion />
+                    <h3>Birthdays:</h3>
+                    
                 </div>
                 <div className="dates occasions">
-                    <Occasion />
-                    <Occasion />
+                    <h3>Celebrations:</h3>
+                    {occasionEls}
                 </div>
                 
             </div>
