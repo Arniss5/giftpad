@@ -1,26 +1,28 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import Occasion from "../components/Occasion";
 import "./Dates.css"
 import { nanoid } from "nanoid";
+import { Context } from "../Context";
+
 
 // https://calendarific.com/api-documentation
 
 function Dates() {
-
+    const context = useContext(Context)
     const apiKey = process.env.REACT_APP_API_KEY
     
     // Current month&year
     const [date, setDate] = useState(new Date()) 
-    const month = (date.getMonth() + 1).toString()
-    const year = date.getFullYear().toString()
+    const currentMonth = (date.getMonth() + 1).toString()
+    const currentYear = date.getFullYear().toString()
     
     // const [month, setMonth] = useState((date.getMonth() + 1).toString())
 
     const [holidays, setHolidays] = useState([])
     const [formData, setFormData] = useState(
         {
-            month: month,
-            year: year,
+            month: currentMonth,
+            year: currentYear,
         }
     )
 
@@ -32,10 +34,32 @@ function Dates() {
                 month={holiday.date.datetime.month}
                 name={holiday.name}
                 description={holiday.description}
+                display="grey"
             />
         )
     })
 
+    const birthdaysEls = context.notes.map(note => {
+        const [year, month, day] = note.birthday.split('-')
+        console.log(formData.month)
+        console.log(month)
+        if(note.birthday && month === formData.month || month === "0" + formData.month) {
+            
+            const age = currentYear - year
+            console.log(currentYear)
+            return (
+                <Occasion
+                    key={nanoid()}
+                    day={day}
+                    month={month}
+                    name={note.name}
+                    description={`${note.name} is turning ${age}!`}
+                    display=""
+                />
+            )
+        }
+        
+    })
     
     // console.log(formData)
 
@@ -100,7 +124,7 @@ function Dates() {
             <div className="dates-container">
                 <div className="dates birthdays">
                     <h3>Birthdays:</h3>
-                    
+                    {birthdaysEls}
                 </div>
                 <div className="dates occasions">
                     <h3>Celebrations:</h3>

@@ -44,6 +44,10 @@
     width: 90%;
 }
 
+.dates {
+    margin-bottom: 3em;
+}
+
 
 
 @media (min-width: 750px) {

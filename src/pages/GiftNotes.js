@@ -1,53 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import "./GiftNotes.css"
 import Note from "../components/Note";
+import { Context } from "../Context";
 import { nanoid } from "nanoid";
 
 
 function GiftNotes() {
-
-    // STATES & EFFECTS
-    const [notes, setNotes] = useState(localStorage.getItem("notes") == null? [
-        {
-            elId: nanoid(),
-            name: "Kasia",
-            hobby1: "coding",
-            hobby2: "films",
-            hobby3: "boardgames",
-            birthday: "1991-03-16",
-            ideas: [
-                {
-                    elId: nanoid(),
-                    gift: "shoes",
-                    comments: "Supper pretty shoes that I saw in CCC last time I was in Poland. They cost 139PLN",
-                    url: "https://www.google.com",
-                },
-                {
-                    elId: nanoid(),
-                    gift: "Hogwards Legacy",
-                    comments: "That PC game that's just come out. Would be a good bday idea. Can be bought on Amazon (see link) or in GAME",
-                    url: "https://www.amazon.com",
-                }
-            ],
-            isHidden: true
-        },
-        {
-            elId: nanoid(),
-            name: "Ross",
-            hobby1: "warhammer",
-            hobby2: "magic",
-            hobby3: "video games",
-            birthday: "1991-01-02",
-            ideas: [{
-                    elId: nanoid(),
-                    gift: "warhammer",
-                    comments: "whatever",
-                    url: "https://www.google.com",
-                }],
-            isHidden: true
-        }
-    ] : JSON.parse(localStorage.getItem("notes")))
-
+    const context = useContext(Context)
 
     // Add note form
     const [formData, setFormData] = useState(
@@ -68,20 +27,20 @@ function GiftNotes() {
 
     // Get list of notes from Storage
     useEffect(() => {
-        localStorage.setItem('notes', JSON.stringify(notes))
-      }, [notes]);
+        localStorage.setItem('notes', JSON.stringify(context.notes))
+      }, [context.notes]);
 
-    let notesEl =  notes.map(note => {
+    let notesEl =  context.notes.map(note => {
         return <Note 
             key={nanoid()}
             elId={note.elId}
             name={note.name}
-            notes={notes}
+            notes={context.notes}
             hobbies={[note.hobby1, note.hobby2, note.hobby3]}
             birthday={note.birthday}
             ideas={note.ideas}
             deleteNote={deleteNote}
-            setNotes ={setNotes}
+            setNotes ={context.setNotes}
             toggleHiddenNote={toggleHiddenNote}
             isNoteHidden={note.isNoteHidden}
         />
@@ -104,7 +63,7 @@ function GiftNotes() {
     // Handle notes
     function addNote(e) {
         e.preventDefault()
-        setNotes(prevNotes => (
+        context.setNotes(prevNotes => (
             [
                 ...prevNotes,
                 formData
@@ -122,14 +81,14 @@ function GiftNotes() {
     }
 
     function deleteNote(e) {
-        setNotes(prevNotes => {
+        context.setNotes(prevNotes => {
             return prevNotes.filter(note => e.target.parentElement.id !== note.elId)
         })
     }
 
     // Shrink/extend 'Add new note' element on small screens
     function toggleHiddenNote(e) {
-        setNotes(prevNotes => {
+        context.setNotes(prevNotes => {
             return prevNotes.map(note => {
                 if(e.target.parentElement.parentElement.id === note.elId) {
                     return {
@@ -200,7 +159,7 @@ function GiftNotes() {
             </div>
             <div className="notes">
                 {/* RENDER NOTES HERE */}
-                {notes.length === 0 ? 
+                {context.notes.length === 0 ? 
                     <img 
                         src={require("../images/notes.jpg")} 
                         alt="a cartoon person writing in a notepad" 
