@@ -81,37 +81,7 @@ function Dates() {
 
     }
 
-    // console.log(context.notes)
-    // console.log(filterBirthday(context.notes))
-    // get notes array of objects
-    // filter those that match currentMonth
-    // sort objects basing on 
-
     const birthdaysEls = getBirthdayEls()
-
-    // const birthdaysEls = context.notes.map(note => {
-    //     const [year, month, day] = note.birthday.split('-')
-    //     // console.log(formData.month)
-    //     // console.log(month)
-    //     if(note.birthday && month === formData.month || month === "0" + formData.month) {
-            
-    //         const age = currentYear - year
-    //         // console.log(currentYear)
-    //         return (
-    //             <Occasion
-    //                 key={nanoid()}
-    //                 day={day}
-    //                 month={month}
-    //                 name={note.name}
-    //                 description={`${note.name} is turning ${age}!`}
-    //                 display=""
-    //             />
-    //         )
-    //     }
-        
-    // })
-    
-    // console.log(formData)
 
     useEffect(() => {
         fetchData()
