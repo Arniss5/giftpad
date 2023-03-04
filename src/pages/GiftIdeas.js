@@ -8,7 +8,7 @@ function GiftIdeas() {
         <div className="ideas-container">
             <h2>Gift ideas</h2>
             <div className="columns">
-            <div className="column">
+            <div className="column column-1">
                 <div className="idea-text">I need an idea for a...</div>
                 <div class="wrapper">
                     <input type="radio" name="select" id="option-1" />
@@ -17,19 +17,21 @@ function GiftIdeas() {
                     <input type="radio" name="select" id="option-4" />
                     <label for="option-1" class="option option-1" >
                         <div class="dot"></div>
-                        <span>Romantic</span>
-                    </label>
-                    <label for="option-2" class="option option-2">
-                        <div class="dot"></div>
-                        <span>Practical</span>
+                        <span>romantic</span>
                     </label>
                     <label for="option-3" class="option option-3">
                         <div class="dot"></div>
-                        <span>Silly</span>
+                        <span>silly</span>
                     </label>
+                    
+                    
                     <label for="option-4" class="option option-4">
                         <div class="dot"></div>
-                        <span>Geeky</span>
+                        <span>geeky</span>
+                    </label>
+                    <label for="option-2" class="option option-2">
+                        <div class="dot"></div>
+                        <span>practical</span>
                     </label>
                 </div>
                 <div className="flex-container">
@@ -40,7 +42,7 @@ function GiftIdeas() {
                 
 
             </div>
-                <div className="column">
+                <div className="column column-2">
                     <img 
                         src={require("../images/confused.jpg")} 
                         alt="a person looking confused" 
