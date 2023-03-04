@@ -95,6 +95,11 @@ h2 {
     transform: scale(1.02);
 }
 
+.gift-notes-img {
+    width: 90%;
+}
+
+
 @media (min-width: 1040px) {
     .gift-notes-container {
         display: flex;
@@ -129,9 +134,9 @@ h2 {
         background-color: #ff8979;
     }
     
-
     .add-note form.hidden {
         display: flex;
     }
+
 }
 

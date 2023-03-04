@@ -163,7 +163,7 @@ function GiftNotes() {
                     <img 
                         src={require("../images/notes.jpg")} 
                         alt="a cartoon person writing in a notepad" 
-                        className="panel panel-img" 
+                        className="panel panel-img gift-notes-img" 
                     /> :
                     notesEl
                 }
