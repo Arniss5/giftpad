@@ -4,49 +4,98 @@ import { nanoid } from "nanoid";
 
 
 function GiftIdeas() {
+
+    const [formData, setFormData] = useState(
+        {
+            giftType: "",
+            isUnder20: false,
+        }
+    )
+
+    console.log(formData)
+
+    function handleChange(event) {
+        const {name, value, type, checked} = event.target
+        setFormData(prevFormData => {
+            return {
+                ...prevFormData,
+                [name]: type === "checkbox" ? checked : value
+            }
+        })
+    }
+
+
     return(
         <div className="ideas-container">
             <h2>Gift ideas</h2>
             <div className="columns">
-            <div className="column column-1">
-                <div className="idea-text">I need an idea for a...</div>
+            <form className="column column-1">
+                
+                <div className="idea-text">I need an idea for a ...</div>
                 <div class="wrapper">
-                    <input type="radio" name="select" id="option-1" />
-                    <input type="radio" name="select" id="option-2" />
-                    <input type="radio" name="select" id="option-3" />
-                    <input type="radio" name="select" id="option-4" />
-                    <label for="option-1" class="option option-1" >
-                        <div class="dot"></div>
+                    <input 
+                        type="radio" 
+                        name="giftType" 
+                        id="option-1"
+                        value="romantic"
+                        checked={formData.giftType === "romantic"}
+                        onChange={handleChange} 
+                    />
+                    <input 
+                        type="radio" 
+                        name="giftType" 
+                        id="option-2"
+                        value="silly"
+                        checked={formData.giftType === "silly"}
+                        onChange={handleChange} 
+                    />
+                    <input 
+                        type="radio" 
+                        name="giftType" 
+                        id="option-3"
+                        value="geeky"
+                        checked={formData.giftType === "geeky"}
+                        onChange={handleChange} 
+                    />
+                    <input 
+                        type="radio" 
+                        name="giftType" 
+                        id="option-4"
+                        value="practical"
+                        checked={formData.giftType === "practical"}
+                        onChange={handleChange} 
+                    />
+                    <label for="option-1" className="option option-1" >
+                        <div className="dot"></div>
                         <span>romantic</span>
                     </label>
-                    <label for="option-3" class="option option-3">
-                        <div class="dot"></div>
+                    <label for="option-2" className="option option-2">
+                        <div className="dot"></div>
                         <span>silly</span>
                     </label>
                     
                     
-                    <label for="option-4" class="option option-4">
-                        <div class="dot"></div>
+                    <label for="option-3" className="option option-3">
+                        <div className="dot"></div>
                         <span>geeky</span>
                     </label>
-                    <label for="option-2" class="option option-2">
-                        <div class="dot"></div>
+                    <label for="option-4" className="option option-4">
+                        <div className="dot"></div>
                         <span>practical</span>
                     </label>
                 </div>
                 <div className="flex-container">
                     <span className="idea-text">... gift</span>
                     <input className="tickbox-input" type="checkbox" id="cb01"></input>
-                    <label for="cb01" className="idea-text">under £20</label>
+                    <label for="cb01" className="idea-text checkbox-label">under £20</label>
                 </div>
                 
 
-            </div>
+            </form>
                 <div className="column column-2">
                     <img 
                         src={require("../images/confused.jpg")} 
                         alt="a person looking confused" 
-                        className="" 
                     />
                 </div>
                 

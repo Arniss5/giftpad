@@ -135,6 +135,14 @@
     transition: color 200ms ease-in, text-shadow 150ms ease-in 25ms;
 }
 
+.checkbox-label {
+    color: #808080;
+}
+
+.tickbox-input:checked + .checkbox-label {
+    color: #000;
+}
+
 .flex-container {
     display: flex;
     align-items: center;
