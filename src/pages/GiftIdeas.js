@@ -73,8 +73,6 @@ function GiftIdeas() {
                         <div className="dot"></div>
                         <span>silly</span>
                     </label>
-                    
-                    
                     <label for="option-3" className="option option-3">
                         <div className="dot"></div>
                         <span>geeky</span>
@@ -86,7 +84,14 @@ function GiftIdeas() {
                 </div>
                 <div className="flex-container">
                     <span className="idea-text">... gift</span>
-                    <input className="tickbox-input" type="checkbox" id="cb01"></input>
+                    <input 
+                        className="tickbox-input" 
+                        type="checkbox" 
+                        id="cb01"
+                        name="isUnder20"
+                        checked={formData.isUnder20}
+                        onChange={handleChange}
+                    />
                     <label for="cb01" className="idea-text checkbox-label">under £20</label>
                 </div>
                 
