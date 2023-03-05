@@ -6,6 +6,7 @@ import "./WelcomePage.css"
 function WelcomePage() {
     const context = useContext(Context)
     const soundRef = useRef()
+    
     function enterPin(e) {
         soundRef.current.play()
         if(context.pin.length < 4) {
