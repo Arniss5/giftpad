@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import "./GiftIdeas.css"
+import giftData from "../utils/giftData";
 import { nanoid } from "nanoid";
 
 
@@ -94,7 +95,7 @@ function GiftIdeas() {
                     />
                     <label for="cb01" className="idea-text checkbox-label">under £20</label>
                 </div>
-                
+                <button className="submit-btn">Get inspired</button>
 
             </form>
                 <div className="column column-2">

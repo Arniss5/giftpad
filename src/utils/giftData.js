@@ -1,4 +1,4 @@
-const giftIdeas = [
+const giftData = [
     { name: "Love Letter Kit", isUnder20: true, type: "romantic" },
     { name: "Date Night Cookbook", isUnder20: true, type: "romantic" },
     { name: "His & Hers Coffee Mugs", isUnder20: true, type: "romantic" },
@@ -152,4 +152,4 @@ const giftIdeas = [
     { name: "D&D T-Shirt", isUnder20: true, type: "geeky" },
   ];
 
-export default giftIdeas
+export default giftData
