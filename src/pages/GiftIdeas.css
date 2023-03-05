@@ -176,11 +176,21 @@
 }
 
 .idea-container {
+    font-size: 2rem;
     align-self: center;
     width: 80%;
-    background-color: #192D33;
+    background-color: #385A64;
+    color: #D9D9D9;
+    padding: 1.5em;
+    margin: 1em 0;
+    border-radius: .6em;
+}
+
+.gift-idea-name {
+    font-size: 3.5rem;
+    text-align: center;
+    padding: .7em 0;
     color: #fff;
-    padding: 2em;
 }
 
 @media (min-width: 850px) {

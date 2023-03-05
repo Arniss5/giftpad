@@ -130,7 +130,7 @@ function GiftIdeas() {
                 <button className="submit-btn" >Get inspired</button>
 
                 </form>
-                {ideaEl}
+                {displayedIdea && ideaEl}
             </div>
                 <div className="column column-2">
                     <img 
