@@ -6,14 +6,14 @@ import { nanoid } from "nanoid";
 
 function GiftIdeas() {
 
+    const [sideImg, setSideImg] = useState("confused.jpg")
+    const [displayedIdea, setDisplayedIdea] = useState("")
     const [formData, setFormData] = useState(
         {
             giftType: "",
             isUnder20: false,
         }
     )
-
-    console.log(formData)
 
     function handleChange(event) {
         const {name, value, type, checked} = event.target
@@ -25,12 +25,44 @@ function GiftIdeas() {
         })
     }
 
+    function getInspired(e) {
+        e.preventDefault()
+        const idea = getGiftIdea()
+        setDisplayedIdea(idea)
+
+        if(idea.type === "romantic") {
+            setSideImg("romantic.jpg")
+        } else if(idea.type === "silly") {
+            setSideImg("silly.jpg")
+        } else if(idea.type === "geeky") {
+            setSideImg("geeky.jpg")
+        } else if(idea.type === "practical") {
+            setSideImg("practical.jpg")
+        }
+
+
+
+    }
+
+    function getGiftIdea() {
+        const filteredGiftsAr = giftData.filter(gift => gift.type === formData.giftType && gift.isUnder20 === formData.isUnder20)
+        const randomIndex = Math.floor(Math.random() * filteredGiftsAr.length)
+        return filteredGiftsAr[randomIndex]
+    }
+
+    const ideaEl = (
+        <div className="idea-container">
+            <div>How about...</div>
+            <div className="gift-idea-name">{displayedIdea.name}</div>
+        </div>
+    )
 
     return(
         <div className="ideas-container">
             <h2>Gift ideas</h2>
             <div className="columns">
-            <form className="column column-1">
+            <div className="column">
+                <form className="column column-1" onSubmit={getInspired}>
                 
                 <div className="idea-text">I need an idea for a ...</div>
                 <div class="wrapper">
@@ -95,12 +127,14 @@ function GiftIdeas() {
                     />
                     <label for="cb01" className="idea-text checkbox-label">under £20</label>
                 </div>
-                <button className="submit-btn">Get inspired</button>
+                <button className="submit-btn" >Get inspired</button>
 
-            </form>
+                </form>
+                {ideaEl}
+            </div>
                 <div className="column column-2">
                     <img 
-                        src={require("../images/confused.jpg")} 
+                        src={require(`../images/${sideImg}`)} 
                         alt="a person looking confused" 
                     />
                 </div>
