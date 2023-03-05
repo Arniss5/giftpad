@@ -40,8 +40,6 @@ function GiftIdeas() {
             setSideImg("practical.jpg")
         }
 
-
-
     }
 
     function getGiftIdea() {
@@ -50,13 +48,23 @@ function GiftIdeas() {
         return filteredGiftsAr[randomIndex]
     }
 
-    const ideaEl = (
-        <div className="idea-container">
-            <div>How about...</div>
-            <div className="gift-idea-name">{displayedIdea.name}</div>
-        </div>
-    )
+    function getGiftEl() {
+        const textLength = displayedIdea.name ? displayedIdea.name.length : 0
+        let ideaClass = ""
+        console.log(textLength)
+        if (textLength > 21) {
+            ideaClass = "long"
+        }
+        return (
+            <div className={`idea-container ${ideaClass}`}>
+                <div>How about...</div>
+                <div className="gift-idea-name">{displayedIdea.name}</div>
+            </div>
+        )
+    }
 
+    const ideaEl = getGiftEl()
+    
     return(
         <div className="ideas-container">
             <h2>Gift ideas</h2>

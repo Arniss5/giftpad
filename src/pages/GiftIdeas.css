@@ -176,21 +176,26 @@
 }
 
 .idea-container {
-    font-size: 2rem;
+    font-size: 1.5rem;
     align-self: center;
     width: 80%;
     background-color: #385A64;
     color: #D9D9D9;
     padding: 1.5em;
-    margin: 1em 0;
+    margin: 1em 0 0 0;
     border-radius: .6em;
 }
 
+
 .gift-idea-name {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     text-align: center;
     padding: .7em 0;
     color: #fff;
+}
+
+.idea-container.long .gift-idea-name {
+    font-size: 2rem;
 }
 
 @media (min-width: 850px) {
@@ -201,11 +206,21 @@
 }
 
 
-@media (min-width: 1080px) {
+@media (min-width: 1280px) {
     .wrapper {
         flex-wrap: nowrap;
     }
     .idea-text {
         font-size: 2rem;
+    }
+    .idea-container {
+        font-size: 2rem;
+        margin: 1em 0;
+    }
+    .gift-idea-name {
+        font-size: 3.5rem;
+    }
+    .idea-container.long .gift-idea-name{
+        font-size: 3rem;
     }
 }
