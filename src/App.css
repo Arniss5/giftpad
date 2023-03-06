@@ -9,7 +9,7 @@ body {
 .container {
     background-color: rgba(255, 255, 255, 1);
   width: 100vw;
-  min-height: 84vh;
+  min-height: 85vh;
   margin: 0 auto;
   overflow: hidden;
 }
@@ -27,7 +27,7 @@ body {
     .container {
         /* background-color: rgba(255, 255, 255, 0.95); */
         width: 85vw;
-        max-width: 1600px;
-        margin: 0 auto;
+        /* max-width: 1600px;
+        margin: 0 auto; */
     }
 }
