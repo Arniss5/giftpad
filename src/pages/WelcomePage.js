@@ -12,8 +12,7 @@ function WelcomePage() {
         if(context.pin.length < 4) {
             context.setPin(prevPin => prevPin + e.target.innerText)
         } else if(context.enteredPin.length < 4) {
-            context.setEnteredPin(prevPin => prevPin + e.target.innerText
-            )       
+            context.setEnteredPin(prevPin => prevPin + e.target.innerText)       
         }
         
     }

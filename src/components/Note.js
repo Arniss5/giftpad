@@ -99,15 +99,15 @@ function Note(props) {
     
     return(
         <div className={`note-container`} id={props.elId}>
-            <i class={`fa-solid fa-trash ${props.isNoteHidden ? "hidden" : ""}`} onClick={props.deleteNote}></i>
-            <div className="info" onClick={props.toggleHiddenNote}>
+            <i class={`fa-solid fa-trash ${props.isNoteExpanded ? "" : "hidden"}`} onClick={props.deleteNote}></i>
+            <div className="info" onClick={props.toggleExpandNote}>
                 {/* HEADER */}
                 <div className="header-el"  >
                     <h3>{props.name}</h3>   
                     <p> <i class="fa-solid fa-cake-candles"></i>   {formattedBirthday}</p>
                 </div>
                 {/* HOBBIES */}
-                <div className={`hobbies ${props.isNoteHidden ? "hidden" : ""}`}>
+                <div className={`hobbies ${props.isNoteExpanded ? "" : "hidden"}`}>
                 <h4> <i class="fa-solid fa-palette"></i> Hobbies:</h4>
                 <ul>
                     {hobbiesEls}
@@ -115,7 +115,7 @@ function Note(props) {
                 </div>
             </div>
             {/* GIFTS */}
-            <div className={`gifts-container ${props.isNoteHidden ? "hidden" : ""}`}>
+            <div className={`gifts-container ${props.isNoteExpanded ? "" : "hidden"}`}>
                 <h4> <i class="fa-solid fa-gift"></i> Gift ideas:</h4>
                 <div className="gifts" >
                     {/* render gift ideas here */}

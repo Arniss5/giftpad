@@ -24,33 +24,25 @@ function GiftNotes() {
     const [isAddNoteShrunk, setIsAddNoteShrunk] = useState(true);
     
 
-    // Get list of notes from Storage
     useEffect(() => {
         localStorage.setItem('notes', JSON.stringify(context.notes))
       }, [context.notes]);
 
-    let notesElements =  context.notes.map(note => {
-        const {elId, name, hobby1, hobby2, hobby3, birthday, ideas, isNoteHidden} = note
+
+    const notesElements =  context.notes.map(note => {
         return <Note 
             key={nanoid()}
-            elId={elId}
-            name={name}
             notes={context.notes}
-            hobbies={[hobby1, hobby2, hobby3]}
-            birthday={birthday}
-            ideas={ideas}
-            deleteNote={deleteNote}
+            hobbies={[note.hobby1, note.hobby2, note.hobby3]}
             setNotes ={context.setNotes}
-            toggleHiddenNote={toggleHiddenNote}
-            isNoteHidden={isNoteHidden}
+            toggleExpandNote={toggleExpandNote}
+            deleteNote={deleteNote}
+            {...note}
         />
     })
 
 
-// METHODS
-
-    // Get info from user input in form
-    function handleChange(event) {
+    function handleFormChange(event) {
         const {name, value} = event.target
         setAddNoteFormData(prevFormData => {
             return {
@@ -60,7 +52,7 @@ function GiftNotes() {
         })
     }
 
-    // Handle notes
+
     function addNote(e) {
         e.preventDefault()
         context.setNotes(prevNotes => (
@@ -86,14 +78,14 @@ function GiftNotes() {
         })
     }
 
-    // Shrink/extend 'Add new note' element on small screens
-    function toggleHiddenNote(e) {
+    function toggleExpandNote(e) {
         context.setNotes(prevNotes => {
             return prevNotes.map(note => {
-                if(e.target.parentElement.parentElement.id === note.elId) {
+                const targetNote = e.target.parentElement.parentElement
+                if(targetNote.id === note.elId) {
                     return {
                         ...note,
-                        isNoteHidden:!note.isNoteHidden
+                        isNoteExpanded:!note.isNoteExpanded
                     }
                 } else {
                     return note
@@ -118,7 +110,7 @@ function GiftNotes() {
                         id="name-input"
                         type="text"
                         placeholder="Giftee's name"
-                        onChange={handleChange}
+                        onChange={handleFormChange}
                         name="name"
                         value={addNoteFormData.name}
                         required
@@ -128,7 +120,7 @@ function GiftNotes() {
                         id="dob-input"
                         type="date"
                         placeholder="Date of birth"
-                        onChange={handleChange}
+                        onChange={handleFormChange}
                         name="birthday"
                         value={addNoteFormData.birthday}
                     />
@@ -137,21 +129,21 @@ function GiftNotes() {
                         <input
                             type="text"
                             placeholder="Hobby 1"
-                            onChange={handleChange}
+                            onChange={handleFormChange}
                             name="hobby1"
                             value={addNoteFormData.hobby1}
                         />
                         <input
                             type="text"
                             placeholder="Hobby 2"
-                            onChange={handleChange}
+                            onChange={handleFormChange}
                             name="hobby2"
                             value={addNoteFormData.hobby2}
                         />
                         <input
                             type="text"
                             placeholder="Hobby 3"
-                            onChange={handleChange}
+                            onChange={handleFormChange}
                             name="hobby3"
                             value={addNoteFormData.hobby3}
                         />
