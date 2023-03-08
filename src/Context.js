@@ -34,46 +34,48 @@ function ContextProvider(props) {
     const [notes, setNotes] = useState(localStorage.getItem("notes") == null? [
         {
             elId: nanoid(),
-            name: "Kasia",
-            hobby1: "coding",
-            hobby2: "films",
+            name: "John",
+            hobby1: "horror movies",
+            hobby2: "British history",
             hobby3: "boardgames",
-            birthday: "1991-03-16",
+            birthday: "1991-04-16",
             ideas: [
                 {
                     elId: nanoid(),
-                    gift: "shoes",
-                    comments: "Supper pretty shoes that I saw in CCC last time I was in Poland. They cost 139PLN",
-                    url: "https://www.google.com",
+                    gift: "History book",
+                    comments: "'A Short History of England' by Simon Jenkins, seen in Waterstones for £9.99, recommended by Adam",
+                    url: "https://www.waterstones.com/book/a-short-history-of-england/simon-jenkins/9781788160896",
                 },
                 {
                     elId: nanoid(),
-                    gift: "Hogwards Legacy",
-                    comments: "That PC game that's just come out. Would be a good bday idea. Can be bought on Amazon (see link) or in GAME",
-                    url: "https://www.amazon.com",
+                    gift: "Everdell",
+                    comments: "Awesome looking warker placement boardgame. We played it in Dice cafe and John loved it. Can be ordered online for around £50.",
+                    url: "hhttps://www.board-game.co.uk/product/everdell/",
                 }
             ],
             isHidden: true
         },
         {
             elId: nanoid(),
-            name: "Ross",
+            name: "Jane",
             hobby1: "warhammer",
-            hobby2: "magic",
+            hobby2: "magic the gathering",
             hobby3: "video games",
-            birthday: "1991-01-02",
+            birthday: "1991-01-05",
             ideas: [{
                     elId: nanoid(),
-                    gift: "warhammer",
-                    comments: "whatever",
-                    url: "https://www.google.com",
+                    gift: "Hogwarts Legacy",
+                    comments: "Jane said she loves Harry Potter, might be a great game for her. Can buy on Steam for 50 quid",
+                    url: "https://store.steampowered.com/app/990080/Hogwarts_Legacy/",
                 }],
             isHidden: true
         }
     ] : JSON.parse(localStorage.getItem("notes")))
 
     return(
-        <Context.Provider value={{pin, setPin, enteredPin, setEnteredPin, isPinCorrect, setIsPinCorrect, resetPin, notes, setNotes}}>
+        <Context.Provider 
+            value={{pin, setPin, enteredPin, setEnteredPin, isPinCorrect, setIsPinCorrect, resetPin, notes, setNotes}}
+        >
             {props.children}
         </Context.Provider>
     )

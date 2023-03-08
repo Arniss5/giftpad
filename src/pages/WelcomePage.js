@@ -1,14 +1,14 @@
-import React, {useState, useContext, useRef} from "react";
+import React, {useContext, useRef} from "react";
 import { Context } from "../Context";
-import buttonSound from "../sounds/button_click.mp3"
+import pinButtonSound from "../sounds/button_click.mp3"
 import "./WelcomePage.css"
 
 function WelcomePage() {
     const context = useContext(Context)
-    const soundRef = useRef()
+    const pinButtonSoundRef = useRef()
     
     function enterPin(e) {
-        soundRef.current.play()
+        pinButtonSoundRef.current.play()
         if(context.pin.length < 4) {
             context.setPin(prevPin => prevPin + e.target.innerText)
         } else if(context.enteredPin.length < 4) {
@@ -20,7 +20,7 @@ function WelcomePage() {
 
     return (
         <div class="panels-container">
-            <audio ref={soundRef} src={buttonSound} preload="auto"></audio>
+            <audio ref={pinButtonSoundRef} src={pinButtonSound} preload="auto"></audio>
             <img 
                 src={require("../images/giftshop.png")} 
                 alt="gift shop cartoon" 

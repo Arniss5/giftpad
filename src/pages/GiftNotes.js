@@ -8,8 +8,7 @@ import { nanoid } from "nanoid";
 function GiftNotes() {
     const context = useContext(Context)
 
-    // Add note form
-    const [formData, setFormData] = useState(
+    const [addNoteFormData, setAddNoteFormData] = useState(
         {
             elId: nanoid(),
             name: "",
@@ -21,8 +20,8 @@ function GiftNotes() {
         }
     )
     
-    // Add note element display settings
-    const [isHidden, setIsHidden] = useState(true);
+    // only for small screens
+    const [isAddNoteShrunk, setIsAddNoteShrunk] = useState(true);
     
 
     // Get list of notes from Storage
@@ -30,19 +29,20 @@ function GiftNotes() {
         localStorage.setItem('notes', JSON.stringify(context.notes))
       }, [context.notes]);
 
-    let notesEl =  context.notes.map(note => {
+    let notesElements =  context.notes.map(note => {
+        const {elId, name, hobby1, hobby2, hobby3, birthday, ideas, isNoteHidden} = note
         return <Note 
             key={nanoid()}
-            elId={note.elId}
-            name={note.name}
+            elId={elId}
+            name={name}
             notes={context.notes}
-            hobbies={[note.hobby1, note.hobby2, note.hobby3]}
-            birthday={note.birthday}
-            ideas={note.ideas}
+            hobbies={[hobby1, hobby2, hobby3]}
+            birthday={birthday}
+            ideas={ideas}
             deleteNote={deleteNote}
             setNotes ={context.setNotes}
             toggleHiddenNote={toggleHiddenNote}
-            isNoteHidden={note.isNoteHidden}
+            isNoteHidden={isNoteHidden}
         />
     })
 
@@ -52,7 +52,7 @@ function GiftNotes() {
     // Get info from user input in form
     function handleChange(event) {
         const {name, value} = event.target
-        setFormData(prevFormData => {
+        setAddNoteFormData(prevFormData => {
             return {
                 ...prevFormData,
                 [name]: value
@@ -66,10 +66,10 @@ function GiftNotes() {
         context.setNotes(prevNotes => (
             [
                 ...prevNotes,
-                formData
+                addNoteFormData
             ]
         ))
-        setFormData({
+        setAddNoteFormData({
             elId: nanoid(),
             name: "",
             hobby1: "",
@@ -109,8 +109,10 @@ function GiftNotes() {
         <div className="gift-notes-container">
             
             <div className="add-note">
-                <h3 onClick={() => setIsHidden(!isHidden)}>ADD NEW NOTE</h3>
-                <form className={isHidden ? "hidden" : ""} onSubmit={addNote}>
+                <h3 onClick={() => setIsAddNoteShrunk(!isAddNoteShrunk)}>
+                    ADD NEW NOTE
+                </h3>
+                <form className={isAddNoteShrunk ? "hidden" : ""} onSubmit={addNote}>
                     <label htmlFor="name-input">Name:</label>
                     <input
                         id="name-input"
@@ -118,7 +120,7 @@ function GiftNotes() {
                         placeholder="Giftee's name"
                         onChange={handleChange}
                         name="name"
-                        value={formData.name}
+                        value={addNoteFormData.name}
                         required
                     />
                     <label htmlFor="dob-input">Date of birth:</label>
@@ -128,7 +130,7 @@ function GiftNotes() {
                         placeholder="Date of birth"
                         onChange={handleChange}
                         name="birthday"
-                        value={formData.birthday}
+                        value={addNoteFormData.birthday}
                     />
                     <fieldset>
                         <legend>Hobbies:</legend>
@@ -137,21 +139,21 @@ function GiftNotes() {
                             placeholder="Hobby 1"
                             onChange={handleChange}
                             name="hobby1"
-                            value={formData.hobby1}
+                            value={addNoteFormData.hobby1}
                         />
                         <input
                             type="text"
                             placeholder="Hobby 2"
                             onChange={handleChange}
                             name="hobby2"
-                            value={formData.hobby2}
+                            value={addNoteFormData.hobby2}
                         />
                         <input
                             type="text"
                             placeholder="Hobby 3"
                             onChange={handleChange}
                             name="hobby3"
-                            value={formData.hobby3}
+                            value={addNoteFormData.hobby3}
                         />
                     </fieldset>
                     <button type="submit" className="add-note-btn">ADD</button>
@@ -165,7 +167,7 @@ function GiftNotes() {
                         alt="a cartoon person writing in a notepad" 
                         className="panel panel-img gift-notes-img" 
                     /> :
-                    notesEl
+                    notesElements
                 }
             </div>
         </div>
