@@ -1,7 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "./GiftIdeas.css"
 import giftData from "../utils/giftData";
-import { nanoid } from "nanoid";
 
 
 function GiftIdeas() {
@@ -15,7 +14,7 @@ function GiftIdeas() {
         }
     )
 
-    function handleChange(event) {
+    function handleFormChange(event) {
         const {name, value, type, checked} = event.target
         setFormData(prevFormData => {
             return {
@@ -43,18 +42,21 @@ function GiftIdeas() {
     }
 
     function getGiftIdea() {
-        const filteredGiftsAr = giftData.filter(gift => gift.type === formData.giftType && gift.isUnder20 === formData.isUnder20)
+        const filteredGiftsAr = giftData.filter(gift => 
+            (gift.type === formData.giftType && gift.isUnder20 === formData.isUnder20))
         const randomIndex = Math.floor(Math.random() * filteredGiftsAr.length)
+
         return filteredGiftsAr[randomIndex]
     }
 
     function getGiftEl() {
         const textLength = displayedIdea.name ? displayedIdea.name.length : 0
         let ideaClass = ""
-        console.log(textLength)
+      
         if (textLength > 21) {
             ideaClass = "long"
         }
+        
         return (
             <div className={`idea-container ${ideaClass}`}>
                 <div>How about...</div>
@@ -80,7 +82,7 @@ function GiftIdeas() {
                         id="option-1"
                         value="romantic"
                         checked={formData.giftType === "romantic"}
-                        onChange={handleChange} 
+                        onChange={handleFormChange} 
                     />
                     <input 
                         type="radio" 
@@ -88,7 +90,7 @@ function GiftIdeas() {
                         id="option-2"
                         value="silly"
                         checked={formData.giftType === "silly"}
-                        onChange={handleChange} 
+                        onChange={handleFormChange} 
                     />
                     <input 
                         type="radio" 
@@ -96,7 +98,7 @@ function GiftIdeas() {
                         id="option-3"
                         value="geeky"
                         checked={formData.giftType === "geeky"}
-                        onChange={handleChange} 
+                        onChange={handleFormChange} 
                     />
                     <input 
                         type="radio" 
@@ -104,7 +106,7 @@ function GiftIdeas() {
                         id="option-4"
                         value="practical"
                         checked={formData.giftType === "practical"}
-                        onChange={handleChange} 
+                        onChange={handleFormChange} 
                     />
                     <label for="option-1" className="option option-1" >
                         <div className="dot"></div>
@@ -131,7 +133,7 @@ function GiftIdeas() {
                         id="cb01"
                         name="isUnder20"
                         checked={formData.isUnder20}
-                        onChange={handleChange}
+                        onChange={handleFormChange}
                     />
                     <label for="cb01" className="idea-text checkbox-label">under £20</label>
                 </div>

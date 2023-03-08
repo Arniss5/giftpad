@@ -5,12 +5,9 @@ import { nanoid } from "nanoid";
 
 function Note(props) {
 
-    // STATES
-    // 'add gift idea' display setting
-    const [isExtended, setIsExtended] = useState(false)
+    const [isAddIdeaFormVisible, setIsAddIdeaFormVisible] = useState(false)
 
-    // data from "add idea" form
-    const [formData, setFormData] = useState(
+    const [addIdeaFormData, setAddIdeaFormData] = useState(
         {
             elId: nanoid(),
             gift: "",
@@ -20,11 +17,10 @@ function Note(props) {
         }
     )
 
-    // METHODS
-    // Get info from user input in form
-    function handleChange(event) {
+
+    function handleFormChange(event) {
         const {name, value} = event.target
-        setFormData(prevFormData => {
+        setAddIdeaFormData(prevFormData => {
                 return {
                     ...prevFormData,
                     [name]: value
@@ -33,7 +29,6 @@ function Note(props) {
         })
     }
 
-    // Handle ideas
     function addGiftIdea(e) {
         e.preventDefault()
             props.setNotes(prevState => {
@@ -43,7 +38,7 @@ function Note(props) {
                             ...giftNote,
                             ideas: [
                                 ...giftNote.ideas,
-                                formData
+                                addIdeaFormData
                             ]
                         }
                     } else {
@@ -52,7 +47,7 @@ function Note(props) {
                 })
                 
             })
-            setFormData({
+            setAddIdeaFormData({
                 elId: nanoid(),
                 gift: "",
                 comments: "",
@@ -76,20 +71,27 @@ function Note(props) {
         })
     }
 
-    // hide/show "add idea" form
-    function toggleExtend() {
-        setIsExtended(prevState => !prevState)
+
+    function toggleShowIdeaForm() {
+        setIsAddIdeaFormVisible(prevState => !prevState)
     }
 
 
-    // FORMAT PROPS BEFORE RENDERING
     const hobbiesEls = props.hobbies.map(hobby => hobby ? <li key={nanoid()}>{hobby}</li> : "")
 
     const formattedBirthday = props.birthday ? formatDate(props.birthday) : "Unknown"
 
     const giftEls = props.ideas.map(idea => (
-        <div className="gift" key={nanoid()} id={idea.elId} >
-            <i class="fa-solid fa-xmark" onClick={removeGiftIdea} data-gift={props.elId}></i>
+        <div 
+            className="gift" 
+            key={nanoid()} 
+            id={idea.elId} 
+        >
+            <i 
+                class="fa-solid fa-xmark" 
+                onClick={removeGiftIdea} 
+                data-gift={props.elId}
+            ></i>
             <h5>{idea.gift}</h5>
             <p>{idea.comments}</p>
             {idea.url && <a href={idea.url} target="_blank"><i class="fa-solid fa-link"></i> See here</a>}
@@ -97,9 +99,12 @@ function Note(props) {
     ))
 
     
-    return(
+    return (
         <div className={`note-container`} id={props.elId}>
-            <i class={`fa-solid fa-trash ${props.isNoteExpanded ? "" : "hidden"}`} onClick={props.deleteNote}></i>
+            <i 
+                class={`fa-solid fa-trash ${props.isNoteExpanded ? "" : "hidden"}`} 
+                onClick={props.deleteNote}
+            ></i>
             <div className="info" onClick={props.toggleExpandNote}>
                 {/* HEADER */}
                 <div className="header-el"  >
@@ -121,18 +126,18 @@ function Note(props) {
                     {/* render gift ideas here */}
                     {giftEls}
                     
-                    <i class={`fa-solid ${isExtended? "fa-circle-minus" : "fa-circle-plus"}`} onClick={toggleExtend}></i>
+                    <i class={`fa-solid ${isAddIdeaFormVisible? "fa-circle-minus" : "fa-circle-plus"}`} onClick={toggleShowIdeaForm}></i>
 
-                    <form data-note={props.elId} onSubmit={addGiftIdea} className={isExtended ? "extended" : ""}>
+                    <form data-note={props.elId} onSubmit={addGiftIdea} className={isAddIdeaFormVisible ? "extended" : ""}>
                         <fieldset>
                             <legend>New gift idea:</legend>
                             <label htmlFor="name-input">Gift:</label>
                             <input
                                 id="gift-input"
                                 type="text"
-                                onChange={handleChange}
+                                onChange={handleFormChange}
                                 name="gift"
-                                value={formData.gift}
+                                value={addIdeaFormData.gift}
                                 required
                             />
                         
@@ -141,16 +146,16 @@ function Note(props) {
                                 rows="4"
                                 id="comments-input"
                                 type="text"
-                                onChange={handleChange}
+                                onChange={handleFormChange}
                                 name="comments"
-                                value={formData.comments}
+                                value={addIdeaFormData.comments}
                             />
 
                             <label htmlFor="url-input">Link:</label>
                             <input
                                 id="url-input"
                                 type="url"
-                                onChange={handleChange}
+                                onChange={handleFormChange}
                                 name="url"
                             />
                        </fieldset>
