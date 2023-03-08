@@ -61,7 +61,7 @@ function ContextProvider(props) {
             hobby1: "warhammer",
             hobby2: "magic the gathering",
             hobby3: "video games",
-            birthday: "1991-01-05",
+            birthday: "1991-05-01",
             ideas: [{
                     elId: nanoid(),
                     gift: "Hogwarts Legacy",

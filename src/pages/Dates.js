@@ -11,15 +11,13 @@ function Dates() {
     const context = useContext(Context)
     const apiKey = process.env.REACT_APP_API_KEY
     
-    // Current month&year
-    const [date, setDate] = useState(new Date()) 
-    const currentMonth = (date.getMonth() + 1).toString()
-    const currentYear = date.getFullYear().toString()
+    const currentDate = new Date()
+    const currentMonth = (currentDate.getMonth() + 1).toString()
+    const currentYear = currentDate.getFullYear().toString()
     
-    // const [month, setMonth] = useState((date.getMonth() + 1).toString())
 
     const [holidays, setHolidays] = useState([])
-    const [formData, setFormData] = useState(
+    const [datesFormData, setDatesFormData] = useState(
         {
             month: currentMonth,
             year: currentYear,
@@ -45,7 +43,7 @@ function Dates() {
             const birthdayMonth = new Date(obj.birthday).getMonth() + 1
             const birthdayYear = new Date(obj.birthday).getFullYear()
             // Get rid of "negative" birthdays
-            return birthdayMonth == formData.month && formData.year - birthdayYear > 0
+            return birthdayMonth == datesFormData.month && datesFormData.year - birthdayYear > 0
         })
         // Sort the filtered array by the day component of the "birthday" property
         filteredArray.sort((a, b) => {
@@ -62,7 +60,7 @@ function Dates() {
         if (matchingBdays.length > 0) {
             return matchingBdays.map(bday => {
                 const [year, month, day] = bday.birthday.split('-')
-                const age = formData.year - year
+                const age = datesFormData.year - year
                 return (
                     <Occasion
                         key={nanoid()}
@@ -85,19 +83,19 @@ function Dates() {
 
     useEffect(() => {
         fetchData()
-    }, [formData])
+    }, [datesFormData])
 
     const fetchData = () => {
-        fetch(`https://calendarific.com/api/v2/holidays?&api_key=${apiKey}&country=GB&year=${formData.year}&month=${formData.month}`)
+        fetch(`https://calendarific.com/api/v2/holidays?&api_key=${apiKey}&country=GB&year=${datesFormData.year}&month=${datesFormData.month}`)
         .then(response => response.json())
         .then(data => setHolidays(data.response.holidays))
         .catch(error => console.log(error));
     };
 
 
-    function handleChange(event) {
+    function handleFormChange(event) {
         const {name, value} = event.target
-        setFormData(prevFormData => {
+        setDatesFormData(prevFormData => {
             return {
                 ...prevFormData,
                 [name]: value
@@ -105,7 +103,6 @@ function Dates() {
         })
     }
 
-    // console.log(holidays)
     return(
         <div className="main-container">
             
@@ -113,7 +110,7 @@ function Dates() {
             <div className="columns">
             <div className="form-container">
                 <h3>Select month:</h3>
-                <select id="month-input" value={formData.month} onChange={handleChange} name="month">
+                <select id="month-input" value={datesFormData.month} onChange={handleFormChange} name="month">
                     <option value="1">January</option>
                     <option value="2">February</option>
                     <option value="3">March</option>
@@ -131,9 +128,9 @@ function Dates() {
                         id="year-input"
                         type="number"
                         placeholder="Year"
-                        onChange={handleChange}
+                        onChange={handleFormChange}
                         name="year"
-                        value={formData.year}
+                        value={datesFormData.year}
                     />
                 <img 
                     src={require("../images/dates.png")} 

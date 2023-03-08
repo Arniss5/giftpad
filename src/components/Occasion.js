@@ -3,7 +3,7 @@ import "./Occasion.css"
 
 
 function Occasion(props) {
-    // console.log(props.day)
+
     return(
         <div className={`date-container ${props.display}`}>
             <div className={`day ${props.display}`}>{props.day}/{props.month}</div>

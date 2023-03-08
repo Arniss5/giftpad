@@ -12,7 +12,9 @@ function Header() {
 
     return (
         <header>
-            {!isCurrentPageMain ? <Link to="/giftpad"><Logo className="logo"/></Link> : <Logo className="logo"/>}
+            {!isCurrentPageMain ? 
+                <Link to="/giftpad"><Logo className="logo"/></Link> : 
+                <Logo className="logo"/>}
             <span>GiftPad</span>
         </header>
     )

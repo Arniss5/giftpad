@@ -4,7 +4,6 @@ import "./Footer.css"
 function Footer() {
     return (
         <footer>
-            
                 <div className="author">Developed by <strong>Arniss5</strong> © 2023</div>
                 <div className="socials-container">
                     <a href="https://github.com/Arniss5" target="_blank" >
@@ -18,7 +17,7 @@ function Footer() {
                     </a>
                 </div>
             <div className="credits">
-                <a href="https://www.freepik.com/author/stories" target="_blank">Images by storyset on Freepik</a> <br></br>
+                <a href="https://www.freepik.com/author/stories" target="_blank">Images by Storyset on Freepik</a> <br></br>
                 <a href="https://www.zapsplat.com" target="_blank">Sounds from Zapsplat</a> 
             </div>
         </footer>
