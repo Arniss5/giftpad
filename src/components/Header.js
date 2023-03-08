@@ -14,7 +14,8 @@ function Header() {
         <header>
             {!isCurrentPageMain ? 
                 <Link to="/giftpad"><Logo className="logo"/></Link> : 
-                <Logo className="logo"/>}
+                <Logo className="logo"/>
+            }
             <span>GiftPad</span>
         </header>
     )

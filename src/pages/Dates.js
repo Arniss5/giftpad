@@ -1,8 +1,9 @@
-import React, {useEffect, useState, useContext} from "react";
+import React, {useEffect, useState, useContext, useRef} from "react";
 import Occasion from "../components/Occasion";
 import "./Dates.css"
 import { nanoid } from "nanoid";
 import { Context } from "../Context";
+import expandSound from "../sounds/expand.mp3"
 
 
 // https://calendarific.com/api-documentation
@@ -10,6 +11,7 @@ import { Context } from "../Context";
 function Dates() {
     const context = useContext(Context)
     const apiKey = process.env.REACT_APP_API_KEY
+    const expandSoundRef = useRef()
     
     const currentDate = new Date()
     const currentMonth = (currentDate.getMonth() + 1).toString()
@@ -56,7 +58,7 @@ function Dates() {
 
     function getBirthdayEls() {
         const matchingBdays = filterBirthday(context.notes)
-        console.log(matchingBdays)
+        
         if (matchingBdays.length > 0) {
             return matchingBdays.map(bday => {
                 const [year, month, day] = bday.birthday.split('-')
@@ -94,6 +96,8 @@ function Dates() {
 
 
     function handleFormChange(event) {
+        expandSoundRef.current.play()
+        
         const {name, value} = event.target
         setDatesFormData(prevFormData => {
             return {
@@ -105,7 +109,7 @@ function Dates() {
 
     return(
         <div className="main-container">
-            
+            <audio ref={expandSoundRef} src={expandSound} preload="auto"></audio>
             <h2>Dates to remember</h2>
             <div className="columns">
             <div className="form-container">

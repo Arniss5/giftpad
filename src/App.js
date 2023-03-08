@@ -21,7 +21,6 @@ function App() {
       <div className='container'>
         <Routes>
           <Route exact path='/giftpad' element={context.isPinCorrect ? <Main/> : <WelcomePage />}/>
-          {/* <Route exact path='/main' element={<Main />}/> */}
           <Route exact path='/gift-notes' element={<GiftNotes />}/>
           <Route exact path='/gift-ideas' element={<GiftIdeas />}/>
           <Route exact path='/dates' element={<Dates />}/>

@@ -1,6 +1,6 @@
 import React, {useContext, useRef} from "react";
 import { Context } from "../Context";
-import pinButtonSound from "../sounds/button_click.mp3"
+import pinButtonSound from "../sounds/pin_click.mp3"
 import "./WelcomePage.css"
 
 function WelcomePage() {

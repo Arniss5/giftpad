@@ -1,12 +1,15 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import "./GiftIdeas.css"
 import giftData from "../utils/giftData";
+import buttonSound from "../sounds/button_click.mp3"
 
 
 function GiftIdeas() {
 
     const [sideImg, setSideImg] = useState("confused.jpg")
     const [displayedIdea, setDisplayedIdea] = useState("")
+    const buttonSoundRef = useRef()
+
     const [formData, setFormData] = useState(
         {
             giftType: "",
@@ -26,18 +29,24 @@ function GiftIdeas() {
 
     function getInspired(e) {
         e.preventDefault()
-        const idea = getGiftIdea()
-        setDisplayedIdea(idea)
+        if (formData.giftType) {
 
-        if(idea.type === "romantic") {
-            setSideImg("romantic.jpg")
-        } else if(idea.type === "silly") {
-            setSideImg("silly.jpg")
-        } else if(idea.type === "geeky") {
-            setSideImg("geeky.jpg")
-        } else if(idea.type === "practical") {
-            setSideImg("practical.jpg")
+            buttonSoundRef.current.play()
+            const idea = getGiftIdea()
+            setDisplayedIdea(idea)
+
+            if(idea.type === "romantic") {
+                setSideImg("romantic.jpg")
+            } else if(idea.type === "silly") {
+                setSideImg("silly.jpg")
+            } else if(idea.type === "geeky") {
+                setSideImg("geeky.jpg")
+            } else if(idea.type === "practical") {
+                setSideImg("practical.jpg")
+            }
+
         }
+        
 
     }
 
@@ -56,7 +65,7 @@ function GiftIdeas() {
         if (textLength > 21) {
             ideaClass = "long"
         }
-        
+
         return (
             <div className={`idea-container ${ideaClass}`}>
                 <div>How about...</div>
@@ -69,6 +78,7 @@ function GiftIdeas() {
     
     return(
         <div className="ideas-container">
+            <audio ref={buttonSoundRef} src={buttonSound} preload="auto"></audio>
             <h2>Gift ideas</h2>
             <div className="columns">
             <div className="column">
@@ -137,7 +147,7 @@ function GiftIdeas() {
                     />
                     <label for="cb01" className="idea-text checkbox-label">under £20</label>
                 </div>
-                <button className="submit-btn" >Get inspired</button>
+                <button className="submit-btn" disabled={!formData.giftType}>Get inspired</button>
 
                 </form>
                 {displayedIdea && ideaEl}

@@ -175,6 +175,10 @@
     transform: scale(1.02);
 }
 
+.submit-btn:disabled {
+    cursor: not-allowed;
+}
+
 .idea-container {
     font-size: 1.5rem;
     align-self: center;

@@ -1,12 +1,14 @@
-import React, {useEffect, useState, useContext} from "react";
+import React, {useEffect, useState, useContext, useRef} from "react";
 import "./GiftNotes.css"
 import Note from "../components/Note";
 import { Context } from "../Context";
 import { nanoid } from "nanoid";
+import expandSound from "../sounds/expand.mp3"
 
 
 function GiftNotes() {
     const context = useContext(Context)
+    const expandSoundRef = useRef()
 
     const [addNoteFormData, setAddNoteFormData] = useState(
         {
@@ -79,6 +81,7 @@ function GiftNotes() {
     }
 
     function toggleExpandNote(e) {
+        expandSoundRef.current.play()
         context.setNotes(prevNotes => {
             return prevNotes.map(note => {
                 const targetNote = e.target.parentElement.parentElement
@@ -97,6 +100,7 @@ function GiftNotes() {
 
     return(
         <>
+        <audio ref={expandSoundRef} src={expandSound} preload="auto"></audio>
         <h2>Gift notes</h2>
         <div className="gift-notes-container">
             
