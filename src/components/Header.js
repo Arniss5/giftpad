@@ -17,6 +17,15 @@ function Header() {
                 <Logo className="logo"/>
             }
             <span>GiftPad</span>
+            <div className="toggle-container">
+                <i class="fa-solid fa-volume-high"></i>
+                <div className="toggle">
+                    <input type="checkbox" class="check"/>
+                    <b className="b switch"></b>
+                    <b className="b track"></b>
+                </div>
+            </div>
+            
         </header>
     )
 }
