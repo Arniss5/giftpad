@@ -31,6 +31,7 @@ function Note(props) {
 
     function addGiftIdea(e) {
         e.preventDefault()
+        props.buttonSoundRef.current.play()
             props.setNotes(prevState => {
                 return prevState.map(giftNote => {
                     if(e.target.dataset.note == giftNote.elId) {
@@ -57,6 +58,7 @@ function Note(props) {
     }
 
     function removeGiftIdea(e) {
+        props.deleteSoundRef.current.play()
         props.setNotes(prevState => {
             return prevState.map(giftNote => {
                 if(e.target.dataset.gift == giftNote.elId) {

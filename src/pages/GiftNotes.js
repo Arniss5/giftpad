@@ -4,11 +4,15 @@ import Note from "../components/Note";
 import { Context } from "../Context";
 import { nanoid } from "nanoid";
 import expandSound from "../sounds/expand.mp3"
+import buttonSound from "../sounds/button_click.mp3"
+import deleteSound from "../sounds/delete.mp3"
 
 
 function GiftNotes() {
     const context = useContext(Context)
     const expandSoundRef = useRef()
+    const buttonSoundRef = useRef()
+    const deleteSoundRef = useRef()
 
     const [addNoteFormData, setAddNoteFormData] = useState(
         {
@@ -39,6 +43,8 @@ function GiftNotes() {
             setNotes ={context.setNotes}
             toggleExpandNote={toggleExpandNote}
             deleteNote={deleteNote}
+            buttonSoundRef={buttonSoundRef}
+            deleteSoundRef={deleteSoundRef}
             {...note}
         />
     })
@@ -57,6 +63,7 @@ function GiftNotes() {
 
     function addNote(e) {
         e.preventDefault()
+        buttonSoundRef.current.play()
         context.setNotes(prevNotes => (
             [
                 ...prevNotes,
@@ -75,6 +82,7 @@ function GiftNotes() {
     }
 
     function deleteNote(e) {
+        deleteSoundRef.current.play()
         context.setNotes(prevNotes => {
             return prevNotes.filter(note => e.target.parentElement.id !== note.elId)
         })
@@ -101,6 +109,8 @@ function GiftNotes() {
     return(
         <>
         <audio ref={expandSoundRef} src={expandSound} preload="auto"></audio>
+        <audio ref={buttonSoundRef} src={buttonSound} preload="auto"></audio>
+        <audio ref={deleteSoundRef} src={deleteSound} preload="auto"></audio>
         <h2>Gift notes</h2>
         <div className="gift-notes-container">
             
