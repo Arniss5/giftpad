@@ -10,6 +10,10 @@ function Header() {
     const location = useLocation();
     const isCurrentPageMain = location.pathname === "/giftpad";
 
+    function toggleSound() {
+        context.setIsSoundOn(prevState => !prevState)
+    }
+
     return (
         <header>
             {!isCurrentPageMain ? 
@@ -19,8 +23,8 @@ function Header() {
             <span>GiftPad</span>
             <div className="toggle-container">
                 <i class="fa-solid fa-volume-high"></i>
-                <div className="toggle">
-                    <input type="checkbox" class="check"/>
+                <div className="toggle" onClick={toggleSound}>
+                    <div className={`check ${context.isSoundOn? "checked" : "" }`}></div>
                     <b className="b switch"></b>
                     <b className="b track"></b>
                 </div>

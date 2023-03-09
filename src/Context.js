@@ -5,11 +5,14 @@ const Context = React.createContext()
 
 function ContextProvider(props) {
     
-    const [pin, setPin] = useState(localStorage.getItem("pin") === null? "" : localStorage.getItem("pin"))
-
+    const [pin, setPin] = useState(
+        localStorage.getItem("pin") === null? "" : localStorage.getItem("pin")
+    )
     const [enteredPin, setEnteredPin] = useState("")
     const [isPinCorrect, setIsPinCorrect] = useState(false)
- 
+
+    const [isSoundOn, setIsSoundOn] = useState(true)
+
 
     function resetPin() {
        setPin("")
@@ -74,7 +77,7 @@ function ContextProvider(props) {
 
     return(
         <Context.Provider 
-            value={{pin, setPin, enteredPin, setEnteredPin, isPinCorrect, setIsPinCorrect, resetPin, notes, setNotes}}
+            value={{pin, setPin, enteredPin, setEnteredPin, isPinCorrect, setIsPinCorrect, resetPin, notes, setNotes, isSoundOn, setIsSoundOn}}
         >
             {props.children}
         </Context.Provider>
