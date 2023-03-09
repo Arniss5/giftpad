@@ -91,8 +91,8 @@ function Dates() {
         fetch(`https://calendarific.com/api/v2/holidays?&api_key=${apiKey}&country=GB&year=${datesFormData.year}&month=${datesFormData.month}`)
         .then(response => response.json())
         .then(data => setHolidays(data.response.holidays))
-        .catch(error => console.log(error));
-    };
+        .catch(error => console.log(error))
+    }
 
 
     function handleFormChange(event) {

@@ -1,3 +1,11 @@
+:root {
+    --orange: #FF735C;
+    --light-orange: #ff8979;
+    --green: #3E7080;
+    --dark-green: #192D33;
+    --light-grey: #f5f5f5;
+}
+
 .ideas-container .columns {
     display: flex;
     flex-direction: column;
@@ -21,20 +29,17 @@
     padding: .4em;
 }
 
-  .wrapper {
+.wrapper {
     display: inline-flex;
     background: #fff;
-    /* height: 100px; */
     width: 100%;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 5px;
-    /* padding: 20px 15px; */
     flex-wrap: wrap;
-    /* box-shadow: 5px 5px 30px rgba(0,0,0,0.1); */
-    /* margin: .5em 0; */
-  }
-  .wrapper .option{
+}
+
+.wrapper .option{
     background: #fff;
     height: 50px;
     width: 42%;
@@ -47,62 +52,65 @@
     padding: 10px;
     border: 2px solid lightgrey;
     transition: all 0.3s ease;
-  }
-  .wrapper .option .dot{
+}
+
+.wrapper .option .dot{
     height: 20px;
     width: 20px;
     background: #d9d9d9;
     border-radius: 50%;
     position: relative;
     margin-right: .6em;
-  }
-  .wrapper .option .dot::before{
+}
+
+.wrapper .option .dot::before{
     position: absolute;
     content: "";
     top: 4px;
     left: 4px;
     width: 12px;
     height: 12px;
-    background: #FF735C;
+    background: var(--orange);
     border-radius: 50%;
     opacity: 0;
     transform: scale(1.5);
     transition: all 0.3s ease;
   }
-  input[type="radio"]{
+
+input[type="radio"]{
     display: none;
-  }
-  #option-1:checked:checked ~ .option-1,
-  #option-2:checked:checked ~ .option-2,
-  #option-3:checked:checked ~ .option-3,
-  #option-4:checked:checked ~ .option-4 {
-    border-color: #FF735C;
-    background: #FF735C;
-  }
-  #option-1:checked:checked ~ .option-1 .dot,
-  #option-2:checked:checked ~ .option-2 .dot,
-  #option-3:checked:checked ~ .option-3 .dot,
-  #option-4:checked:checked ~ .option-4 .dot{
+}
+
+#option-1:checked:checked ~ .option-1,
+#option-2:checked:checked ~ .option-2,
+#option-3:checked:checked ~ .option-3,
+#option-4:checked:checked ~ .option-4 {
+    border-color: var(--orange);
+    background: var(--orange);
+}
+#option-1:checked:checked ~ .option-1 .dot,
+#option-2:checked:checked ~ .option-2 .dot,
+#option-3:checked:checked ~ .option-3 .dot,
+#option-4:checked:checked ~ .option-4 .dot{
     background: #fff;
-  }
-  #option-1:checked:checked ~ .option-1 .dot::before,
-  #option-2:checked:checked ~ .option-2 .dot::before,
-  #option-3:checked:checked ~ .option-3 .dot::before,
-  #option-4:checked:checked ~ .option-4 .dot::before{
+}
+#option-1:checked:checked ~ .option-1 .dot::before,
+#option-2:checked:checked ~ .option-2 .dot::before,
+#option-3:checked:checked ~ .option-3 .dot::before,
+#option-4:checked:checked ~ .option-4 .dot::before{
     opacity: 1;
     transform: scale(1);
-  }
-  .wrapper .option span{
+}
+.wrapper .option span{
     font-size: 20px;
     color: #808080;
-  }
-  #option-1:checked:checked ~ .option-1 span,
-  #option-2:checked:checked ~ .option-2 span,
-  #option-3:checked:checked ~ .option-3 span,
-  #option-4:checked:checked ~ .option-4 span{
+}
+#option-1:checked:checked ~ .option-1 span,
+#option-2:checked:checked ~ .option-2 span,
+#option-3:checked:checked ~ .option-3 span,
+#option-4:checked:checked ~ .option-4 span{
     color: #fff;
-  }
-
+}
 
 .option, .tickbox-input {
     cursor: pointer;
@@ -111,7 +119,7 @@
 .tickbox-input {
     display: flex;
     appearance: none;
-    background: linear-gradient(#ff735c, #ff735c);
+    background: linear-gradient(var(--orange), var(--light-orange));
     height: 2rem;
     width: 2rem;
     border-radius: 20%;
@@ -162,8 +170,8 @@
     letter-spacing: 2px;
     font-weight: 700;
     text-transform: uppercase;
-    background-color: #ff8979;
-    color: #f5f5f5;
+    background-color: var(--light-orange);
+    color: var(--light-grey);
     border: none;
     border-radius: 2em;
     transition: all 300ms ease;
@@ -171,7 +179,7 @@
 
 .submit-btn:hover {
     cursor: pointer;
-    background-color: #f7624c;
+    background-color: var(--orange);
     transform: scale(1.02);
 }
 
@@ -183,7 +191,7 @@
     font-size: 1.5rem;
     align-self: center;
     width: 80%;
-    background-color: #385A64;
+    background-color: var(--green);
     color: #D9D9D9;
     padding: 1.5em;
     margin: 1em 0 0 0;

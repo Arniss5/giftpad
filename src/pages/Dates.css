@@ -1,3 +1,8 @@
+:root {
+    --light-orange: #ff8979;
+    --light-grey: #f5f5f5;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -5,16 +10,31 @@
 .columns {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
 }
 
 .form-container {
     display: flex;
     flex-direction: column;
-    width: 100%;
     align-items: center;
-    
+    width: 100%;
+}
+
+.form-container select,
+.form-container input {
+    width: 90%;
+    max-width: 300px;
+    margin-bottom: 1em;
+    padding: .7em;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--light-grey);
+    text-align: center;
+    background-color: var(--light-orange);
+    border: none;
+    border-radius: .4em;
+    cursor: pointer;
 }
 
 .corner-img {
@@ -22,22 +42,6 @@
     width: 100%;
     align-self: center;
     margin-top: 3em;
-}
-
-.form-container select,
-.form-container input {
-    width: 90%;
-    max-width: 300px;
-    background-color: #ff8979;
-    padding: .7em;
-    margin-bottom: 1em;
-    border: none;
-    color: #f5f5f5;
-    font-weight: 700;
-    font-size: 1.2rem;
-    text-align: center;
-    cursor: pointer;
-    border-radius: .4em;
 }
 
 .dates-container {

@@ -1,5 +1,5 @@
-import React, {useContext, useRef} from "react";
-import { Context } from "../Context";
+import React, {useContext, useRef} from "react"
+import { Context } from "../Context"
 import pinButtonSound from "../sounds/pin_click.mp3"
 import "./WelcomePage.css"
 
