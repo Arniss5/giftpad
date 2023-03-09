@@ -1,59 +1,59 @@
+:root {
+    --orange: #FF735C;
+    --green: #3E7080;
+    --dark-green: #192D33;
+    --light-grey: #f5f5f5;
+}
 
 .note-container {
-     background: #3E7080; 
-    color: #192D33;
-    text-align: center;
+    background: var(--green);
     border-radius: .5em;
-    font-size: 1.2rem;
-    width: 100%;
-    height: 100%;
     box-shadow: 1px 1px 10px #797979;
+    color: var(--dark-green);
+    font-size: 1.2rem;
+    height: 100%;
     position: relative;
+    text-align: center;
+    width: 100%;
 }
-
-
-.info {
-    color: #f5f5f5;
-    /* cursor: pointer; */
     
-}
-
-.header-el {
-    cursor: pointer;
-    width: 60%;
-    margin: auto;
-}
-
 .fa-trash {
+    color: var(--light-grey);
+    cursor: pointer;
+    padding: .5em 1em;
     position: absolute;
     right: .5em;
     top: .5em;
-    color: #f5f5f5;
-    /* display: none; */
-    cursor: pointer;
     transition: all 300ms ease;
-    padding: .5em 1em;
     z-index: 2;
 }
-
+    
 .fa-trash:hover {
+    color: var(--orange);
     transform: scale(1.2);
-    color: #ff735c;
 }
-
+    
 .fa-cake-candles {
     margin-right: .2em;
 }
-
+    
+.header-el {
+    cursor: pointer;
+    margin: auto;
+    width: 60%;
+}
+    
+.info {
+    color: var(--light-grey);
+}
 
 
 .note-container h3 {
     font-size: 2rem;
-    text-transform: uppercase;
     margin: .5em;
-    /* text-shadow: 2px 1px 2px rgba(39, 39, 39, 0.822); */
+    pointer-events: none;
+    text-transform: uppercase;
     transition: all 300ms ease;
-    pointer-events: none
 }
 
 .info:hover h3 {
@@ -61,25 +61,23 @@
 }
 
 .note-container p {
-    font-weight: 500;
     font-size: 1.5rem;
-    pointer-events: none
+    font-weight: 500;
+    pointer-events: none;
 }
 
-.hobbies, .gifts-container {
-    background-color: #f5f5f5;
-    color: #000;
-    padding: .8em 0;
+.hobbies,
+.gifts-container {
+    background-color: var(--light-grey);
     border-radius: .3em;
+    color: #000;
     margin: 1em;
+    padding: .8em 0;
     text-align: left;
 }
 
-.hidden {
-    display: none;
-}
-
-.hobbies h4, .gifts-container h4 {
+.hobbies h4,
+.gifts-container h4 {
     font-size: 1.5rem;
     margin: .3em .5em;
 }
@@ -89,58 +87,149 @@
 }
 
 .gift {
-    box-shadow: 0px 2px 3px 0px #192d3350;
-    padding-bottom: 1em;
     background-color: rgb(240, 240, 240);
-    padding: .8em .8em;
+    box-shadow: 0px 2px 3px 0px #192d3350;
+    color: var(--green);
     margin: .5em;
+    padding: .8em .8em;
+    padding-bottom: 1em;
     position: relative;
-    color: #3E7080;
-    
-    /* font-size: .7rem; */
 }
 
+.hidden {
+    display: none;
+}
+
+.note-container {
+    background-color: var(--green);
+    color: #192d33;
+    text-align: center;
+    font-size: 1.2rem;
+    width: 100%;
+    height: 100%;
+    border-radius: 0.5em;
+    box-shadow: 1px 1px 10px #797979;
+    position: relative;
+}
+  
+.info {
+    color: var(--light-grey);
+}
+  
+.header-el {
+    cursor: pointer;
+    width: 60%;
+    margin: auto;
+}
+  
+.fa-trash {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    color: var(--light-grey);
+    cursor: pointer;
+    transition: all 300ms ease;
+    padding: 0.5em 1em;
+    z-index: 2;
+}
+  
+.fa-trash:hover {
+    transform: scale(1.2);
+    color: var(--orange);
+}
+  
+.fa-cake-candles {
+    margin-right: 0.2em;
+}
+  
+.note-container h3 {
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin: 0.5em;
+    transition: all 300ms ease;
+    pointer-events: none;
+}
+  
+.info:hover h3 {
+    transform: scale(1.2);
+}
+  
+.note-container p {
+    font-weight: 500;
+    font-size: 1.5rem;
+    pointer-events: none;
+}
+  
+.hobbies,
+.gifts-container {
+    background-color: var(--light-grey);
+    color: #000;
+    padding: 0.8em 0;
+    border-radius: 0.3em;
+    margin: 1em;
+    text-align: left;
+}
+  
+.hidden {
+    display: none;
+}
+  
+.hobbies h4,
+.gifts-container h4 {
+    font-size: 1.5rem;
+    margin: 0.3em 0.5em;
+}
+  
+.gifts {
+    margin: 1em 0;
+}
+  
+.gift {
+    box-shadow: 0 2px 3px 0 rgba(25, 45, 51, 0.31);
+    padding-bottom: 1em;
+    background-color: #f0f0f0;
+    padding: 0.8em;
+    margin: 0.5em;
+    position: relative;
+    color: var(--green);
+}
+  
 .gift .fa-xmark {
     font-size: 1.5rem;
     position: absolute;
-    top: .5em;
-    right: .6em;
-    padding: .3em;
+    top: 0.5em;
+    right: 0.6em;
+    padding: 0.3em;
     transition: transform ease 300ms;
 }
-
+  
 .gift .fa-xmark:hover {
     cursor: pointer;
     transform: scale(1.2);
 }
-
+  
 .gift h5 {
     font-size: 1.2rem;
     width: fit-content;
     margin: 0;
-    /* padding: .1em .2em; */
-    
     text-transform: capitalize;
-    /* border-bottom: 3px solid #3E7080; */
-
 }
-
+  
 .gift p {
     font-size: 1rem;
     color: #2b3d42;
 }
-
-.gift a{
-    color: #f7624c;
+  
+.gift a {
+    color: var(--orange);
     font-size: 1rem;
     text-decoration: none;
 }
-
+  
 .gift a:visited {
-    color: #f7624c;
+    color: var(--orange);
 }
-
- 
+  
 .gifts form,
 .gifts fieldset {
     display: flex;
@@ -149,12 +238,10 @@
     margin: auto;
 }
 
-
-
 .fa-circle-plus,
 .fa-circle-minus {
     font-size: 2.2rem;
-    color: #ff735c;
+    color: var(--orange);
     display: block;
     width: fit-content;
     padding: .2em 1em;
@@ -170,76 +257,74 @@
 .gifts form {
     margin-top: 2em;
     height: 0;
+    opacity: 0;
     overflow: hidden;
-    transition: opacity ease-in-out 100ms;
-    opacity: 0; /* make the element invisible */
     padding: 3%;
+    transition: opacity 100ms ease-in-out;
 }
-
+  
 .gifts form.extended {
     opacity: 1;
     height: auto;
-    transition: opacity ease 1s;
+    transition: opacity 1s ease;
 }
-
+  
 .gifts fieldset {
-    /* border: 5px solid #3E7080; */
     background-color: #e8f1f5;
 }
+  
 .gifts fieldset legend {
-    color: #192D33;
-    font-weight: 700;
+    color: var(--dark-green);
     font-size: 1.2rem;
+    font-weight: 700;
     margin-bottom: .7em;
 }
-
+  
 .gifts form input,
 .gifts form textarea {
-    color: #192D33;
     border: none;
     border-radius: 20px;
-    padding: .5em;
+    color: var(--dark-green);
     margin: .3em 0 .6em 0;
+    padding: .5em;
     width: 90%;
 }
-
+  
 .gifts form input:focus,
 .gifts form textarea:focus {
-    outline: #192D33 4px solid;
+    outline: 4px solid var(--dark-green);
 }
-
+  
 #image-input {
     display: none;
 }
-
-
+  
 .gifts button {
-    font-weight: 700;
-    text-transform: uppercase;
-    background-color: #ff8979;
-    color: #f5f5f5;
-    width: calc(100% - 4em);
-    margin: 1em 2em;
-    padding: 1em;
+    background-color: var(--orange);
     border: none;
     border-radius: 2em;
+    color: var(--light-grey);
+    font-weight: 700;
+    margin: 1em 2em;
+    padding: 1em;
+    text-transform: uppercase;
     transition: all 300ms ease;
+    width: calc(100% - 4em);
 }
-
+  
 .gifts button:hover {
-    cursor: pointer;
     background-color: #f7624c;
+    cursor: pointer;
     transform: scale(1.02);
 }
-
-
+  
 @media (min-width: 1100px) {
     .note-container {
-        margin-right: auto;
+      margin-right: auto;
     }
     .note-container.expanded {
-        display: flex;
-        justify-content: space-between;
+      display: flex;
+      justify-content: space-between;
     }
-
 }
+  

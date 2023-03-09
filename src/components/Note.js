@@ -1,9 +1,12 @@
-import React, {useState} from "react";
+import React, {useState, useContext} from "react";
 import "./Note.css"
 import formatDate from "../utils/utils";
 import { nanoid } from "nanoid";
+import { Context } from "../Context"
 
 function Note(props) {
+
+    const context = useContext(Context)
 
     const [isAddIdeaFormVisible, setIsAddIdeaFormVisible] = useState(false)
 
@@ -16,7 +19,6 @@ function Note(props) {
             image: ""
         }
     )
-
 
     function handleFormChange(event) {
         const {name, value} = event.target
@@ -31,34 +33,42 @@ function Note(props) {
 
     function addGiftIdea(e) {
         e.preventDefault()
-        props.buttonSoundRef.current.play()
-            props.setNotes(prevState => {
-                return prevState.map(giftNote => {
-                    if(e.target.dataset.note == giftNote.elId) {
-                        return {
-                            ...giftNote,
-                            ideas: [
-                                ...giftNote.ideas,
-                                addIdeaFormData
-                            ]
-                        }
-                    } else {
-                        return giftNote
+
+        if (context.isSoundOn) {
+            props.buttonSoundRef.current.play()
+        }
+        
+        props.setNotes(prevState => {
+            return prevState.map(giftNote => {
+                if(e.target.dataset.note == giftNote.elId) {
+                    return {
+                        ...giftNote,
+                        ideas: [
+                            ...giftNote.ideas,
+                            addIdeaFormData
+                        ]
                     }
-                })
-                
+                } else {
+                    return giftNote
+                }
             })
-            setAddIdeaFormData({
-                elId: nanoid(),
-                gift: "",
-                comments: "",
-                url: "",
-                image: ""
-            })
+            
+        })
+        
+        setAddIdeaFormData({
+            elId: nanoid(),
+            gift: "",
+            comments: "",
+            url: "",
+            image: ""
+        })
     }
 
     function removeGiftIdea(e) {
-        props.deleteSoundRef.current.play()
+        if (context.isSoundOn) {
+            props.deleteSoundRef.current.play()
+        }
+        
         props.setNotes(prevState => {
             return prevState.map(giftNote => {
                 if(e.target.dataset.gift == giftNote.elId) {
@@ -72,7 +82,6 @@ function Note(props) {
             })
         })
     }
-
 
     function toggleShowIdeaForm() {
         setIsAddIdeaFormVisible(prevState => !prevState)
@@ -98,7 +107,8 @@ function Note(props) {
             <p>{idea.comments}</p>
             {idea.url && <a href={idea.url} target="_blank"><i class="fa-solid fa-link"></i> See here</a>}
         </div>
-    ))
+        )
+    )
 
     
     return (
@@ -107,9 +117,9 @@ function Note(props) {
                 class={`fa-solid fa-trash ${props.isNoteExpanded ? "" : "hidden"}`} 
                 onClick={props.deleteNote}
             ></i>
-            <div className="info" onClick={props.toggleExpandNote}>
+            <div className="info" >
                 {/* HEADER */}
-                <div className="header-el"  >
+                <div className="header-el"  onClick={props.toggleExpandNote}>
                     <h3>{props.name}</h3>   
                     <p> <i class="fa-solid fa-cake-candles"></i>   {formattedBirthday}</p>
                 </div>
@@ -128,12 +138,22 @@ function Note(props) {
                     {/* render gift ideas here */}
                     {giftEls}
                     
-                    <i class={`fa-solid ${isAddIdeaFormVisible? "fa-circle-minus" : "fa-circle-plus"}`} onClick={toggleShowIdeaForm}></i>
+                    <i 
+                        class={`fa-solid ${isAddIdeaFormVisible?
+                         "fa-circle-minus" : 
+                         "fa-circle-plus"}`
+                        } 
+                        onClick={toggleShowIdeaForm}
+                    ></i>
 
-                    <form data-note={props.elId} onSubmit={addGiftIdea} className={isAddIdeaFormVisible ? "extended" : ""}>
+                    <form 
+                        data-note={props.elId} 
+                        onSubmit={addGiftIdea} 
+                        className={isAddIdeaFormVisible ? "extended" : ""}
+                    >
                         <fieldset>
                             <legend>New gift idea:</legend>
-                            <label htmlFor="name-input">Gift:</label>
+                            <label htmlFor="gift-input">Gift:</label>
                             <input
                                 id="gift-input"
                                 type="text"
