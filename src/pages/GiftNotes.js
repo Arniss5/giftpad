@@ -63,7 +63,11 @@ function GiftNotes() {
 
     function addNote(e) {
         e.preventDefault()
-        buttonSoundRef.current.play()
+
+        if (context.isSoundOn) {
+            buttonSoundRef.current.play()
+        }
+        
         context.setNotes(prevNotes => (
             [
                 ...prevNotes,
@@ -82,14 +86,20 @@ function GiftNotes() {
     }
 
     function deleteNote(e) {
-        deleteSoundRef.current.play()
+        if (context.isSoundOn) {
+            deleteSoundRef.current.play()
+        }
+        
         context.setNotes(prevNotes => {
             return prevNotes.filter(note => e.target.parentElement.id !== note.elId)
         })
     }
 
     function toggleExpandNote(e) {
-        expandSoundRef.current.play()
+        if (context.isSoundOn) {
+            expandSoundRef.current.play()
+        }
+        
         context.setNotes(prevNotes => {
             return prevNotes.map(note => {
                 const targetNote = e.target.parentElement.parentElement

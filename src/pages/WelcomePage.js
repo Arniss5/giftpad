@@ -8,7 +8,10 @@ function WelcomePage() {
     const pinButtonSoundRef = useRef()
     
     function enterPin(e) {
-        pinButtonSoundRef.current.play()
+        if (context.isSoundOn) {
+            pinButtonSoundRef.current.play()
+        }
+        
         if(context.pin.length < 4) {
             context.setPin(prevPin => prevPin + e.target.innerText)
         } else if(context.enteredPin.length < 4) {

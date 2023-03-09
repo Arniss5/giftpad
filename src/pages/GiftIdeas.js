@@ -1,7 +1,8 @@
-import React, {useState, useRef} from "react";
+import React, {useState, useRef, useContext} from "react";
 import "./GiftIdeas.css"
 import giftData from "../utils/giftData";
 import buttonSound from "../sounds/button_click.mp3"
+import { Context } from "../Context";
 
 
 function GiftIdeas() {
@@ -9,6 +10,7 @@ function GiftIdeas() {
     const [sideImg, setSideImg] = useState("confused.jpg")
     const [displayedIdea, setDisplayedIdea] = useState("")
     const buttonSoundRef = useRef()
+    const context = useContext(Context)
 
     const [formData, setFormData] = useState(
         {
@@ -30,8 +32,10 @@ function GiftIdeas() {
     function getInspired(e) {
         e.preventDefault()
         if (formData.giftType) {
-
-            buttonSoundRef.current.play()
+            if (context.isSoundOn) {
+                buttonSoundRef.current.play()
+            }
+            
             const idea = getGiftIdea()
             setDisplayedIdea(idea)
 

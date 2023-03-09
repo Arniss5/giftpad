@@ -96,7 +96,9 @@ function Dates() {
 
 
     function handleFormChange(event) {
-        expandSoundRef.current.play()
+        if (context.isSoundOn) {
+            expandSoundRef.current.play()
+        }
         
         const {name, value} = event.target
         setDatesFormData(prevFormData => {
