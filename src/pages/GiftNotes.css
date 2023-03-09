@@ -1,3 +1,11 @@
+:root {
+    --orange: #FF735C;
+    --light-orange: #ff8979;
+    --green: #3E7080;
+    --dark-green: #192D33;
+    --light-grey: #f5f5f5;
+}
+
 .gift-notes-container {
     background-color: rgba(255, 255, 255, 1); 
     overflow: hidden;
@@ -19,8 +27,8 @@ h2 {
 }
 
 .add-note {
-    background: #ff8979; 
-    color: #f5f5f5;
+    background: var(--light-orange); 
+    color: var(--light-grey);
     font-weight: 700;
     text-align: center;
     border-radius: .5em;
@@ -43,7 +51,7 @@ h2 {
 }
 
 .add-note h3:hover {
-    background-color: #ff735c;
+    background-color: var(--orange);
 
 }
 
@@ -63,24 +71,24 @@ h2 {
     border: none;
     padding: .5em;
     border-radius: 20px;
-    color: #3E7080;
+    color: var(--green);
 }
 
 .add-note form input:focus {
-    outline: 4px solid #3E7080;
+    outline: 4px solid var(--green);
 }
 
 .add-note form fieldset {
     width: 80%;
     margin: 2em 0;
-    color: #192D33;
+    color: var(--dark-green);
     font-weight: 700;
 }
 
 .add-note-btn {
     width: 70%;
-    background-color: #3E7080;
-    color: #f5f5f5;
+    background-color: var(--green);
+    color: var(--light-grey);
     font-weight: 700;
     border: none;
     padding: .5em;
@@ -131,7 +139,7 @@ h2 {
     }
 
     .add-note h3:hover {
-        background-color: #ff8979;
+        background-color: var(--light-orange);
     }
     
     .add-note form.hidden {

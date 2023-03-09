@@ -177,6 +177,7 @@ function Note(props) {
                             <input
                                 id="url-input"
                                 type="url"
+                                placeholder="https://"
                                 onChange={handleFormChange}
                                 name="url"
                             />
