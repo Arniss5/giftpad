@@ -11,6 +11,9 @@ footer {
     align-items: center;
     font-size: 1.1rem;
     padding: 1em 5vw;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
   
 footer strong {

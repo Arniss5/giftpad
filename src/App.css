@@ -1,22 +1,30 @@
 body {
-  /* background-color: #D0D5DB; */
-  background-color: #ebebeb;
-  background: url(./images/88280.jpg);
-  background-size: 800px;
-  font-family: 'Mulish', sans-serif;
+    background-color: #ebebeb;
+    background: url(./images/88280.jpg);
+    background-size: 800px;
+    font-family: 'Mulish', sans-serif;
+    position: relative;
+    min-height: 100vh;
+    
 }
+
 
 .container {
     background-color: rgba(255, 255, 255, 1);
-  width: 100vw;
-  min-height: 85vh;
-  margin: 0 auto;
-  overflow: hidden;
+    width: 100vw;
+    margin: 0 auto;
+    padding: 3vh 0;
+    min-height: 90vh;
+    padding-bottom: 5em;
+}
+
+h2 {
+    margin: 0;
+    margin-bottom: 0.5em;
 }
 
 @media (min-width: 1100px) {
     .container {
-
         width: 100vw;
         max-width: 1600px;
         margin: 0 auto;
@@ -25,9 +33,6 @@ body {
 
 @media (min-width: 1600px) {
     .container {
-        /* background-color: rgba(255, 255, 255, 0.95); */
         width: 85vw;
-        /* max-width: 1600px;
-        margin: 0 auto; */
     }
 }
