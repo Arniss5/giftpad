@@ -8,7 +8,6 @@
 
 .gift-notes-container {
     background-color: rgba(255, 255, 255, 1); 
-    /* overflow: hidden; */
     padding: 1em 6vw 3em 6vw;
     max-width: 1600px;
   
@@ -17,7 +16,7 @@
 h2 {
     text-align: center;
     text-transform: uppercase;
-    font-size: 2.5rem;
+    font-size: 2rem;
 }
 
 .notes {
@@ -112,10 +111,12 @@ h2 {
 @media (min-width: 1040px) {
     .gift-notes-container {
         display: flex;
-        /* justify-items: space-between; */
         align-content: space-between;
         gap: 10%;
-        /* padding: 1em 3em 3em 0; */
+    }
+
+    h2 {
+        font-size: 2.5rem;
     }
 
     .add-note h3 {
