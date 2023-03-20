@@ -3,19 +3,23 @@ body {
     background: url(./images/88280.jpg);
     background-size: 800px;
     font-family: 'Mulish', sans-serif;
-    position: relative;
-    min-height: 100vh;
-    
+    /* position: relative;
+    min-height: 100vh; */
 }
 
+.App {
+    min-height: 100vh;
+    margin: 0;
+}
 
 .container {
     background-color: rgba(255, 255, 255, 1);
     width: 100vw;
     margin: 0 auto;
-    padding: 3vh 0;
-    min-height: 90vh;
-    padding-bottom: 5em;
+    padding: 2em 0;
+    /* height: 90vh; */
+    /* min-height: 80vh; */
+    /* padding-bottom: 5em; */
 }
 
 h2 {
