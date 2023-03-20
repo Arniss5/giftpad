@@ -116,12 +116,8 @@ header span {
 @media (min-width: 500px) {
     .toggle {
         scale: 1;
-        /* border-width: 3px; */
     }
-    /* .switch, */
-    /* .toggle {
-        border-width: 3px;
-    } */
+
     .logo {
         scale: 1.2;
         margin-right: .5em;

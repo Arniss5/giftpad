@@ -2,9 +2,7 @@
     --orange: #FF735C;
 }
 
-.App {
-    position: relative;
-}
+
 
 footer {
     background-color: #192D33;
@@ -13,11 +11,12 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 150px;
     font-size: 1rem;
     padding: 1em 5vw;
-    /* position: absolute; */
-    /* bottom: 0; */
-    /* margin-top: auto; */
+    position: absolute;
+    bottom: 0;
+    margin-top: auto;
     width: 100%;
 }
   
@@ -54,6 +53,7 @@ footer strong {
         flex-direction: row;
         justify-content: space-between;
         bottom: 0;
+        height: 90px;
     }
 }
   
