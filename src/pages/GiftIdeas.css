@@ -22,8 +22,9 @@
 }
 
 .column img {
-    width: 100%;
+    width: 85%;
     margin-bottom: 1em;
+    margin: auto;
 }
 
 .idea-text {
@@ -190,19 +191,19 @@ input[type="radio"]{
 }
 
 .idea-container {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     align-self: center;
     width: 80%;
     background-color: var(--green);
     color: #D9D9D9;
-    padding: 1.5em;
+    padding: 1.2em;
     margin: 1em 0 0 0;
     border-radius: .6em;
 }
 
 
 .gift-idea-name {
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-align: center;
     padding: .7em 0;
     color: #fff;
@@ -232,9 +233,10 @@ input[type="radio"]{
         margin: 1em 0;
     }
     .gift-idea-name {
-        font-size: 3.5rem;
-    }
-    .idea-container.long .gift-idea-name{
         font-size: 3rem;
     }
+    .idea-container.long .gift-idea-name{
+        font-size: 2.7rem;
+    }
+    
 }
