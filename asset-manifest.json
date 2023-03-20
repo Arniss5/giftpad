@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/giftpad/static/css/main.c79062eb.css",
+    "main.css": "/giftpad/static/css/main.69faf3c8.css",
     "main.js": "/giftpad/static/js/main.84331590.js",
     "static/media/88280.jpg": "/giftpad/static/media/88280.b90c724f34459a256b97.jpg",
     "static/media/88280orange.jpg": "/giftpad/static/media/88280orange.3a2a8979f0e25ae3f868.jpg",
@@ -20,11 +20,11 @@
     "static/media/pin_click.mp3": "/giftpad/static/media/pin_click.ba0f1023ca44eb0444bf.mp3",
     "static/media/License free.txt": "/giftpad/static/media/License free.baeac2f1f4f9b4035a9c.txt",
     "index.html": "/giftpad/index.html",
-    "main.c79062eb.css.map": "/giftpad/static/css/main.c79062eb.css.map",
+    "main.69faf3c8.css.map": "/giftpad/static/css/main.69faf3c8.css.map",
     "main.84331590.js.map": "/giftpad/static/js/main.84331590.js.map"
   },
   "entrypoints": [
-    "static/css/main.c79062eb.css",
+    "static/css/main.69faf3c8.css",
     "static/js/main.84331590.js"
   ]
 }
