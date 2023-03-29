@@ -5,7 +5,7 @@ With GiftPad, you can easily add notes about your loved ones and save gift ideas
 
 - [Overview](#overview)
   - [Preview](#preview)
-  - [Functionalities](#functionalities)
+  - [Features](#features)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -19,7 +19,7 @@ With GiftPad, you can easily add notes about your loved ones and save gift ideas
 
 ![](./src/images/giftpad.gif)
 
-### Functionalities
+### Features
 
 PIN Code:
 - On first visit set up a 4-digit PIN code which get saved in the local storage. Not terribly secure but your grandma won't figure it out!
@@ -56,6 +56,7 @@ Other:
 - Semantic HTML5 markup
 - CSS (custom properties, flexbox, grid, media queries, responsive design)
 - React JS (components, context, hooks, Router)
+- JSON
 - API
 
 
