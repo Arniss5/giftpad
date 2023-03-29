@@ -4,17 +4,20 @@ With GiftPad, you can easily add notes about your loved ones and save gift ideas
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Preview](#preview)
+  - [Functionalities](#functionalities)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
+
+### Preview
+
+![](./src/images/giftpad.gif)
 
 ### Functionalities
 
@@ -40,10 +43,6 @@ Other:
 - switch sounds off and on
 - fully responsive design
 
-
-### Preview
-
-![](./src/images/giftpad.gif)
 
 ### Links
 

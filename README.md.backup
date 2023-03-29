@@ -4,17 +4,20 @@ With GiftPad, you can easily add notes about your loved ones and save gift ideas
 ## Table of contents
 
 - [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Preview](#preview)
+  - [Functionalities](#functionalities)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
-  - [What I learned](#what-i-learned)
   - [Continued development](#continued-development)
 - [Author](#author)
 - [Acknowledgments](#acknowledgments)
 
 ## Overview
+
+### Preview
+
+![](./src/images/giftpad.gif)
 
 ### Functionalities
 
@@ -41,10 +44,6 @@ Other:
 - fully responsive design
 
 
-### Preview
-
-![](./src/images/giftpad.gif)
-
 ### Links
 
 - Code: [Github](https://github.com/Arniss5/giftpad)
@@ -60,49 +59,6 @@ Other:
 - API
 
 
-### What I learned
-
-With this project I practiced creating JS functions with conditionals.
-I explored new event listeners. I learned how to get an ID of clicked element. I created an interval.
-
-```html
-<button class="score-btn" id="home1" onclick="addScore(event)"></button>
-```
-
-```css
-@font-face {
-    font-family: 'CursedTimerUlil-Aznm';
-    src: url('./Styles/CursedTimerUlil-Aznm.ttf');
-}
-}
-```
-
-```js
-function startTimer() {
-  setInterval(function () {
-    timerCount += 1;
-    timer.textContent = timerCount;
-  }, 60000);
-}
-```
-
-```js
-window.addEventListener('load', startTimer())
-}
-```
-
-```js
-function addScore(event) {
-  //check id of the clicked button and add respective points
-  if (event.target.id === "home1") {
-    homecount += 1;
-  } else if (event.target.id === "home2") {
-    homecount += 2;
-  }
-  //etc
-}
-```
-
 ### Continued development
 
 I'm planning to attach the app to backend to enable better data storage and user authentication.
@@ -114,4 +70,4 @@ I'm planning to attach the app to backend to enable better data storage and user
 ## Acknowledgments
 
 Images from [Freepik](https://www.freepik.com/author/stories)
-Images from [Freepik](https://www.freepik.com/author/stories)
+Sounds from [Zapsplat](https://www.zapsplat.com/)
